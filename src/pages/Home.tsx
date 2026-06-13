@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { 
   Pickaxe, 
@@ -10,6 +10,8 @@ import {
   Wrench,
   ChevronDown, 
   ChevronUp, 
+  ChevronLeft,
+  ChevronRight,
   Maximize2,
   ShieldCheck,
   Building,
@@ -158,7 +160,8 @@ const PORTFOLIO_HOME = [
   {
     id: 1,
     title: "Daudzdzīvokļu dzīvojamās ēkas demontāža",
-    tag: "DAUDZDZĪVOKĻU ÉKU DEMONTĀŽA",
+    tag: "DAUDZDZĪVOKĻU ĒKU DEMONTĀŽA",
+    sectionName: "Daudzdzīvokļu ēku demontāža",
     location: "Rīga",
     year: "2026",
     url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600",
@@ -166,30 +169,53 @@ const PORTFOLIO_HOME = [
   },
   {
     id: 2,
-    title: "Metāla karkasa angāra demontāža",
-    tag: "ANGĀRU DEMONTĀŽA",
-    location: "Olaine",
-    year: "2026",
-    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp",
-    alt: "angaru-demontaza"
+    title: "Koka un mūra privātmājas demontāža",
+    tag: "PRIVĀTMĀJU DEMONTĀŽA",
+    sectionName: "Privātmāju demontāža",
+    location: "Jūrmala",
+    year: "2025",
+    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600",
+    alt: "privatmaju-demontaza"
   },
   {
     id: 3,
+    title: "Nolietotas palīgbūves un vecā šķūņa demontāža",
+    tag: "ŠĶŪŅU DEMONTĀŽA",
+    sectionName: "Šķūņu demontāža",
+    location: "Kuldīga",
+    year: "2026",
+    url: "https://images.unsplash.com/photo-1513828729020-041400e47fe5?q=80&w=600",
+    alt: "vecā-šķūņa-demontāža"
+  },
+  {
+    id: 4,
     title: "Ražošanas un noliktavas ēkas demontāža",
-    tag: "INDUSTRIĀLĀ DEMONTĀŽA",
+    tag: "INDUSTRIĀLO OBJEKTU DEMONTĀŽA",
+    sectionName: "Industriālo objektu demontāža",
     location: "Daugavpils",
     year: "2025",
     url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp",
     alt: "razosanas-noliktavas-eku-demontaza"
   },
   {
-    id: 4,
-    title: "Koka un mūra privātmājas demontāža",
-    tag: "PRIVĀTMĀJU DEMONTĀŽA",
-    location: "Jūrmala",
-    year: "2025",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600",
-    alt: "privatmaju-demontaza"
+    id: 5,
+    title: "Būvniecības gružu un sārņu utilizēšana",
+    tag: "BŪVGRUŽU IZVEŠANA",
+    sectionName: "Būvgružu izvešana",
+    location: "Mārupe",
+    year: "2026",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_4.webp",
+    alt: "būvniecības-gružu-utilizācija"
+  },
+  {
+    id: 6,
+    title: "Būvlaukuma planēšana un sakopšana",
+    tag: "TERITORIJAS SAKOPŠANA",
+    sectionName: "Teritorijas sakopšana",
+    location: "Sigulda",
+    year: "2026",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp",
+    alt: "būvlaukuma-planēšana-sagatavošana"
   }
 ];
 
@@ -215,6 +241,98 @@ export default function Home() {
     phone: "",
     message: ""
   });
+
+  // 5. Portfolio horizontal scroll ref & handler
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeoutRef = useRef<any>(null);
+
+  const scrollContainer = (direction: number) => {
+    if (scrollRef.current) {
+      isProgrammaticScroll.current = true;
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      const el = scrollRef.current;
+      const cardElement = el.firstElementChild as HTMLElement;
+      if (!cardElement) {
+        isProgrammaticScroll.current = false;
+        return;
+      }
+
+      const itemWidth = cardElement.offsetWidth + 24; // Width + gap-6
+      const copyWidth = itemWidth * 6; // Width of one full copy of 6 items
+      const scrollAmount = itemWidth;
+      const currentScroll = el.scrollLeft;
+
+      if (direction === 1) {
+        // If the click is about to go beyond copyWidth * 2, wrap instantly to start of middle copy first
+        if (currentScroll + scrollAmount >= copyWidth * 2 - 5) {
+          el.scrollLeft = currentScroll - copyWidth;
+        }
+        el.scrollBy({
+          left: scrollAmount,
+          behavior: "smooth"
+        });
+      } else {
+        // If the click is about to go below copyWidth, wrap instantly to end of middle copy first
+        if (currentScroll - scrollAmount < copyWidth - 5) {
+          el.scrollLeft = currentScroll + copyWidth;
+        }
+        el.scrollBy({
+          left: -scrollAmount,
+          behavior: "smooth"
+        });
+      }
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 500);
+    }
+  };
+
+  const handleScroll = () => {
+    if (isProgrammaticScroll.current) return;
+    if (scrollRef.current) {
+      const el = scrollRef.current;
+      const cardElement = el.firstElementChild as HTMLElement;
+      if (!cardElement) return;
+
+      const itemWidth = cardElement.offsetWidth + 24;
+      const copyWidth = itemWidth * 6;
+
+      // Real-time automatic stabilization for manual swipes or edge cases
+      if (el.scrollLeft >= copyWidth * 2 - 5) {
+        el.scrollLeft -= copyWidth;
+      } else if (el.scrollLeft <= copyWidth - itemWidth + 5) {
+        el.scrollLeft += copyWidth;
+      }
+    }
+  };
+
+  // Center the portfolio on initial render/load
+  useEffect(() => {
+    if (scrollRef.current) {
+      const el = scrollRef.current;
+      const cardElement = el.firstElementChild as HTMLElement;
+      if (cardElement) {
+        const itemWidth = cardElement.offsetWidth + 24;
+        el.scrollLeft = itemWidth * 6;
+      } else {
+        const timer = setTimeout(() => {
+          if (scrollRef.current) {
+            const first = scrollRef.current.firstElementChild as HTMLElement;
+            if (first) {
+              const itemWidth = first.offsetWidth + 24;
+              scrollRef.current.scrollLeft = itemWidth * 6;
+            }
+          }
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
 
   // Auto carousel slide timer (5 seconds)
   useEffect(() => {
@@ -755,63 +873,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2.4. MŪSU DARBU PORTFOLIO SECTION (4 Beautiful size-identical cards with tighter margins) */}
-      <section className="py-10 bg-gradient-to-b from-[#FAF9F6] via-white to-[#FAF9F6]" aria-label="Mūsu darbu portfolio sākumā">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-10">
-            <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest font-mono">Īstenotie projekti</span>
-            <h2 className="text-zinc-900 text-xl sm:text-2xl font-bold uppercase tracking-tight mt-1">Mūsu darbu portfolio</h2>
-            <div className="h-1 w-12 bg-[#FBBF24] mx-auto mt-3" />
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PORTFOLIO_HOME.map((project) => (
-              <div 
-                key={project.id}
-                onClick={() => navigate("/galerija")}
-                className="bg-zinc-50 border border-zinc-200 p-4 rounded-[2px] hover:border-zinc-300 cursor-pointer flex flex-col justify-between group transition-all duration-205 hover:shadow-md"
-              >
-                <div>
-                  <div className="relative aspect-video w-full overflow-hidden border border-zinc-200/60 rounded-[2px] mb-4 bg-zinc-950">
-                    <img 
-                      src={project.url}
-                      alt={project.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-2 left-2 bg-[#FBBF24] text-[#111827] text-[9px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-[2px] border border-[#FBBF24]/35 shadow">
-                      {project.tag}
-                    </div>
-                  </div>
-                  <h3 className="text-zinc-900 text-[13px] sm:text-sm font-black tracking-tight group-hover:text-[#FBBF24] transition-colors uppercase leading-snug">
-                    {project.title}
-                  </h3>
-                  <p className="text-zinc-500 text-[11px] font-sans font-semibold mt-2 flex items-center gap-1.5 pt-2">
-                    <span>📍 {project.location}</span>
-                    <span className="text-zinc-300">|</span>
-                    <span>📅 {project.year}. g.</span>
-                  </p>
-                </div>
-                <div className="border-t border-zinc-200/60 pt-3 mt-4 text-[10px] font-bold text-[#FBBF24] uppercase tracking-widest flex items-center justify-between group-hover:text-zinc-900 transition-colors">
-                  <span>Skatīt galeriju</span>
-                  <span className="text-lg">→</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/galerija"
-              className="inline-flex cursor-pointer bg-zinc-100 hover:bg-[#FBBF24] text-zinc-900 border border-zinc-250 px-8 py-3.5 text-xs font-black uppercase tracking-wider transition-all duration-150 rounded-[2px] shadow-sm"
-              aria-label="Atvērt pilno projektu galeriju"
-            >
-              Skatīt visu portfolio
-            </Link>
-          </div>
-
-        </div>
-      </section>
 
       {/* 2.5 STATISTIKAS BLOKS (Moved immediately below the Portfolio) */}
       <section className="relative py-20 bg-cover bg-center bg-no-repeat text-white border-t border-zinc-900 overflow-hidden" 
@@ -911,6 +973,91 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 2.4. MŪSU DARBA PORTFOLIO SECTION (Horizontal scroll layout with 7 beautiful cards & navigation buttons) */}
+      <section className="py-10 bg-gradient-to-b from-[#FAF9F6] via-white to-[#FAF9F6]" aria-label="Mūsu darba portfolio sākumā">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10">
+            <div className="text-center sm:text-left">
+              <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest font-mono">Īstenotie projekti</span>
+              <h2 className="text-zinc-900 text-xl sm:text-2xl font-bold uppercase tracking-tight mt-1">Mūsu darba portfolio</h2>
+              <div className="h-1 w-12 bg-[#FBBF24] mx-auto sm:mx-0 mt-3" />
+            </div>
+            
+            <div className="flex justify-center gap-2">
+              <button 
+                onClick={() => scrollContainer(-1)} 
+                className="p-2.5 rounded-full border border-zinc-200 bg-white hover:bg-[#FBBF24] hover:text-zinc-950 hover:border-[#FBBF24] text-zinc-700 transition-all cursor-pointer focus:outline-none shadow-sm"
+                aria-label="Iepriekšējais projekts"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button 
+                onClick={() => scrollContainer(1)} 
+                className="p-2.5 rounded-full border border-zinc-200 bg-white hover:bg-[#FBBF24] hover:text-zinc-950 hover:border-[#FBBF24] text-zinc-700 transition-all cursor-pointer focus:outline-none shadow-sm"
+                aria-label="Nākamais projekts"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div 
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="flex gap-6 overflow-x-auto pb-4 px-1 scrollbar-none [&::-webkit-scrollbar]:hidden"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {[...PORTFOLIO_HOME, ...PORTFOLIO_HOME, ...PORTFOLIO_HOME].map((project, idx) => (
+                <div 
+                  key={`${project.id}-${idx}`}
+                  onClick={() => navigate("/galerija", { state: { activeTab: project.sectionName } })}
+                  className="min-w-[280px] sm:min-w-[320px] md:min-w-[340px] max-w-[350px] flex-shrink-0 bg-zinc-50 border border-zinc-200 p-4 rounded-[2px] hover:border-zinc-300 cursor-pointer flex flex-col justify-between group transition-all duration-205 hover:shadow-md"
+                >
+                  <div>
+                    <div className="relative aspect-video w-full overflow-hidden border border-zinc-200/60 rounded-[2px] mb-4 bg-zinc-950">
+                      <img 
+                        src={project.url}
+                        alt={project.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2 left-2 bg-[#FBBF24] text-[#111827] text-[9px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-[2px] border border-[#FBBF24]/35 shadow">
+                        {project.tag}
+                      </div>
+                    </div>
+                    <h3 className="text-zinc-900 text-[13px] sm:text-sm font-black tracking-tight group-hover:text-[#FBBF24] transition-colors uppercase leading-snug">
+                      {project.title}
+                    </h3>
+                    <p className="text-zinc-500 text-[11px] font-sans font-semibold mt-2 flex items-center gap-1.5 pt-2">
+                      <span>📍 {project.location}</span>
+                      <span className="text-zinc-300">|</span>
+                      <span>📅 {project.year}. g.</span>
+                    </p>
+                  </div>
+                  <div className="border-t border-zinc-200/60 pt-3 mt-4 text-[10px] font-bold text-[#FBBF24] uppercase tracking-widest flex items-center justify-between group-hover:text-[#FBBF24] transition-colors">
+                    <span>Skatīt galeriju</span>
+                    <span className="text-lg">→</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/galerija"
+              className="inline-flex cursor-pointer bg-zinc-100 hover:bg-[#FBBF24] text-zinc-900 border border-zinc-250 px-8 py-3.5 text-xs font-black uppercase tracking-wider transition-all duration-150 rounded-[2px] shadow-sm"
+              aria-label="Atvērt pilno projektu galeriju"
+            >
+              Skatīt visu portfolio
+            </Link>
+          </div>
+
         </div>
       </section>
 

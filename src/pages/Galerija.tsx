@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Maximize2, MapPin, Calendar, ClipboardList, Clock, ArrowRight, Layers } from "lucide-react";
 import QuickNavigation from "../components/QuickNavigation";
 import Lightbox from "../components/Lightbox";
@@ -31,7 +32,7 @@ const SECTIONS_DATA: Section[] = [
   {
     id: 1,
     name: "Daudzdzīvokļu ēku demontāža",
-    tag: "DAUDZDZĪVOKĻU ÉKU DEMONTĀŽA",
+    tag: "DAUDZDZĪVOKĻU ĒKU DEMONTĀŽA",
     galleries: [
       {
         id: "eku-1",
@@ -104,34 +105,9 @@ const SECTIONS_DATA: Section[] = [
     ]
   },
   {
-    id: 4,
-    name: "Angāru demontāža",
-    tag: "ANGĀRU DEMONTĀŽA",
-    galleries: [
-      {
-        id: "ang-1",
-        isTemplate: false,
-        title: "Metāla karkasa angāra demontāža",
-        location: "Olaine",
-        volume: "1200 m²",
-        duration: "1 nedēļa",
-        details: "Angāra metāla karkasa nojaukšana un materiālu nodošana otrreizējai pārstrādei.",
-        images: [
-          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp", alt: "angāru-demontāža-olaine-1" },
-          { id: 2, url: "https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=600", alt: "angāru-demontāža-olaine-2" },
-          { id: 3, url: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600", alt: "angāru-demontāža-olaine-3" },
-          { id: 4, url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600", alt: "angāru-demontāža-olaine-4" },
-          { id: 5, url: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=600", alt: "angāru-demontāža-olaine-5" }
-        ]
-      },
-      { id: "ang-2", isTemplate: true, title: "Objekts #2", location: "-", volume: "-", duration: "-", details: "Informācija sekos", images: [] },
-      { id: "ang-3", isTemplate: true, title: "Objekts #3", location: "-", volume: "-", duration: "-", details: "Informācija sekos", images: [] }
-    ]
-  },
-  {
     id: 5,
     name: "Industriālo objektu demontāža",
-    tag: "INDUSTRIĀLĀ DEMONTĀŽA",
+    tag: "INDUSTRIĀLO OBJEKTU DEMONTĀŽA",
     galleries: [
       {
         id: "ind-1",
@@ -180,8 +156,8 @@ const SECTIONS_DATA: Section[] = [
   },
   {
     id: 7,
-    name: "Teritorijas sakārtošana",
-    tag: "TERITORIJAS SAKĀRTOŠANA",
+    name: "Teritorijas sakopšana",
+    tag: "TERITORIJAS SAKOPŠANA",
     galleries: [
       {
         id: "ter-1",
@@ -206,7 +182,21 @@ const SECTIONS_DATA: Section[] = [
 ];
 
 export default function Galerija() {
-  const [activeTab, setActiveTab] = useState<string>(SECTIONS_DATA[0].name);
+  const location = useLocation();
+  const stateActiveTab = location.state?.activeTab;
+
+  const [activeTab, setActiveTab ] = useState<string>(() => {
+    if (stateActiveTab && SECTIONS_DATA.some((s) => s.name === stateActiveTab)) {
+      return stateActiveTab;
+    }
+    return SECTIONS_DATA[0].name;
+  });
+
+  useEffect(() => {
+    if (stateActiveTab && SECTIONS_DATA.some((s) => s.name === stateActiveTab)) {
+      setActiveTab(stateActiveTab);
+    }
+  }, [stateActiveTab]);
   const [activeSecId, setActiveSecId] = useState<number | null>(null);
   const [activeGalIdx, setActiveGalIdx] = useState<number | null>(null);
   const [activeImgIdx, setActiveImgIdx] = useState<number | null>(null);
