@@ -94,7 +94,7 @@ export default function Header() {
         <Link to="/" className="flex items-center animate-fadeIn" aria-label="Uz sākumu">
           <img
             src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Logo.webp"
-            alt="SIA “Demontāža 24/7” Logo"
+            alt="Demontāža 24/7 logo"
             className="h-[52px] sm:h-[64px] lg:h-[74px] my-0.5 w-auto object-contain transition-all duration-150 mix-blend-multiply bg-transparent"
             onError={(e) => {
               // Fail-safe text representation if resource breaks

@@ -72,8 +72,8 @@ export default function Kontakti() {
 
       {/* Main Interactive Contact Panel */}
       <section className="py-12 bg-zinc-200 border-t border-b border-zinc-300" aria-label="Saziņas lapas forma">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <div className="bg-[#27272a] border border-zinc-800 p-5 sm:px-8 sm:py-6 shadow-2xl rounded-[2px]" id="contact-panel-container">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <div className="bg-[#27272a] border border-zinc-800 p-6 sm:px-10 sm:py-9 rounded-[2px] shadow-2xl" id="contact-panel-container">
             
             {formSubmitted ? (
               <div className="p-8 text-center border border-[#FBBF24]/50 bg-[#18181b] rounded-[2px] animate-fadeIn transition-all">
@@ -82,14 +82,14 @@ export default function Kontakti() {
                 </span>
                 <p className="text-white font-bold text-lg mb-2">Paldies!</p>
                 <p className="text-zinc-300 text-sm leading-relaxed max-w-lg mx-auto">
-                  Jūsu pieteikums ir saņemts. SIA "Demontāža 24/7" speciālists sazināsies ar Jums tuvāko stundu laikā.
+                  Jūsu pieteikums ir saņemts. Mūsu speciālists sazināsies ar Jums tuvāko stundu laikā.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
+              <form onSubmit={handleFormSubmit} className="space-y-5 sm:space-y-6">
                 
-                <div className="text-zinc-300 text-xs leading-relaxed font-sans pb-3 border-b border-zinc-800">
-                  Aizpildiet zemāk esošo formu un piesakiet bezmaksas tāmi sava objekta demontāžai. Pirms darbu sākšanas sniegsim pilnvērtīgu konsultāciju un palīdzēsim ar Būvvaldes dokumentācijas saskaņošanu.
+                <div className="text-zinc-200 text-xs sm:text-sm text-center leading-relaxed font-sans pb-4 border-b border-zinc-800 font-medium font-semibold">
+                  Aizpildiet zemāk esošo formu un piesakiet bezmaksas tāmi sava objekta demontāžas darbiem vai tehnikas nomai. Pirms darbu sākšanas sniegsim pilnvērtīgu konsultāciju un palīdzēsim ar Būvvaldes dokumentācijas saskaņošanu.
                 </div>
 
                 {/* Name field */}
@@ -107,7 +107,7 @@ export default function Kontakti() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                       placeholder=""
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function Kontakti() {
                 </div>
 
                 {/* Email & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   
                   {/* Email */}
                   <div className="space-y-2">
@@ -125,7 +125,7 @@ export default function Kontakti() {
                       E-pasts saziņai <span className="text-[#FBBF24]">*</span>
                     </label>
                     <div className="relative">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#A1A1AA]">
                         <Mail className="h-4 w-4" />
                       </span>
                       <input
@@ -134,7 +134,7 @@ export default function Kontakti() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                         placeholder=""
                       />
                     </div>
@@ -149,7 +149,7 @@ export default function Kontakti() {
                       Tālruņa numurs <span className="text-[#FBBF24]">*</span>
                     </label>
                     <div className="relative">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#A1A1AA]">
                         <Phone className="h-4 w-4" />
                       </span>
                       <input
@@ -158,7 +158,7 @@ export default function Kontakti() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                         placeholder=""
                       />
                     </div>
@@ -175,16 +175,16 @@ export default function Kontakti() {
                     Ziņa / Objekta detaļas <span className="text-[#FBBF24]">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute top-3.5 left-3 text-zinc-400">
+                    <span className="absolute top-3.5 left-3 text-[#A1A1AA] font-bold select-none">
                       <MessageSquare className="h-4 w-4" />
                     </span>
                     <textarea
                       id="message"
                       name="message"
-                      rows={4}
+                      rows={5}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                       placeholder="Lūdzu aprakstiet sev nepieciešamo pakalpojumu."
                     />
                   </div>
@@ -194,7 +194,7 @@ export default function Kontakti() {
                 </div>
 
                 {/* Subtle legal disclaimer note */}
-                <p className="text-zinc-500 text-[10px] sm:text-xs">
+                <p className="text-zinc-400 text-[11px] sm:text-xs">
                   Nospiežot 'Sūtīt pieteikumu', Jūs piekrītat mūsu Privātuma politikai un personas datu apstrādei, lai sagatavotu bezmaksas tāmi.
                 </p>
 
@@ -227,7 +227,7 @@ export default function Kontakti() {
             <a 
               href="tel:26739899"
               className="group block bg-zinc-900 border border-zinc-800 hover:border-[#FBBF24]/80 p-5 sm:p-6 text-center transition-all duration-200 rounded-[2px] shadow-md hover:shadow-xl"
-              aria-label="Zvanīt SIA Demontāža 24/7"
+              aria-label="Zvanīt Demontāža 24/7"
             >
               <div className="p-3.5 bg-zinc-800 text-[#FBBF24] inline-block mb-3.5 rounded-full border border-zinc-700/60 transition-transform duration-200 group-hover:scale-105">
                 <Phone className="h-5.5 w-5.5" />
@@ -243,7 +243,7 @@ export default function Kontakti() {
             <a 
               href="mailto:info@demontaza24.eu"
               className="group block bg-zinc-900 border border-zinc-800 hover:border-[#FBBF24]/80 p-5 sm:p-6 text-center transition-all duration-200 rounded-[2px] shadow-md hover:shadow-xl"
-              aria-label="Sūtīt e-pastu SIA Demontāža 24/7"
+              aria-label="Sūtīt e-pastu Demontāža 24/7"
             >
               <div className="p-3.5 bg-zinc-800 text-[#FBBF24] inline-block mb-3.5 rounded-full border border-zinc-700/60 transition-transform duration-200 group-hover:scale-105">
                 <Mail className="h-5.5 w-5.5" />

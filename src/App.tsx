@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import SEOManager from "./components/SEOManager";
+import CookieBanner from "./components/CookieBanner";
 
 // Pages
 import Home from "./pages/Home";
@@ -11,6 +12,8 @@ import BUJ from "./pages/BUJ";
 import Galerija from "./pages/Galerija";
 import Kontakti from "./pages/Kontakti";
 import MusuTehnika from "./pages/MusuTehnika";
+import SikdatnuPolitika from "./pages/SikdatnuPolitika";
+import PrivatumaPolitika from "./pages/PrivatumaPolitika";
 
 export default function App() {
   return (
@@ -36,6 +39,8 @@ export default function App() {
             <Route path="/buj" element={<BUJ />} />
             <Route path="/galerija" element={<Galerija />} />
             <Route path="/kontakti" element={<Kontakti />} />
+            <Route path="/sikdatnu-politika" element={<SikdatnuPolitika />} />
+            <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
             
             {/* Fail-safe redirection for missing links to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -44,6 +49,9 @@ export default function App() {
 
         {/* Four-Column interactive Footer */}
         <Footer />
+        
+        {/* Cookie Consent Banner */}
+        <CookieBanner />
         
       </div>
     </BrowserRouter>

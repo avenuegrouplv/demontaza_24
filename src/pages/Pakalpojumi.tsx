@@ -16,7 +16,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 1,
     title: "Demontāžas darbi",
-    description: "SIA 'Demontāža 24/7' nodrošina visaugstākās precizitātes demontāžas darbu visdažādākā tipa ēkās un konstrukcijās. Mēs izmantojam modernus rīkus, lai garantētu pilnīgu kontroles sajūtu, saudzējot blakus esošās sienas un nesošos mezglus.",
+    description: "Mūsu uzņēmums nodrošina augstākās kvalitātes un precizitātes demontāžas pakalpojumus visdažādākā tipa ēkās un konstrukcijās. Mēs izmantojam modernu un mūsdienīgu tehniku, lai garantētu drošību demontāžas laikā un saudzētu blakus esošās ēkas sienas vai nesošos mezglus.",
     bullets: [
       "Metāla konstrukciju nojaukšana un demontēšana",
       "Betona un dzelzsbetona pamatu frēzēšana un kalšana",
@@ -29,7 +29,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 2,
     title: "Ēku un būvju nojaukšana",
-    description: "Sarežģītu un paaugstinātas bīstamības objektu pilnīga mehāniska nojaukšana. Mēs saskaņosim visus darba izpildes apstākļus ar Būvvaldi, garantējot mierīgu procesa nodrošināšanu.",
+    description: "Sarežģītu un paaugstinātas bīstamības objektu nojaukšana. Mēs saskaņosim visus ar darba izpildi saistītos apstākļus ar Būvvaldi, garantējot drošu un normatīvajiem aktiem atbilstošu demontāžas procesu.",
     bullets: [
       "Nolietotu un bīstamu graustu likvidēšana pilsētvidē",
       "Bīstamu avārijas stāvoklī esošu konstrukciju demontāža",
@@ -42,7 +42,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 3,
     title: "Būvgružu izvešana",
-    description: "Efektīva un operatīva nojaukšanas atkritumu un lielgabarīta gružu iekraušana, šķirošana un nogādāšana uz licencētiem reģionālajiem poligoniem.",
+    description: "Ātra būvniecības un nojaukšanas atkritumu šķirošana, iekraušana, utilizācija un licencēta utilizācijas dokumentu sagatavošana. Mums ir pieejami dažāda izmēra būvgružu konteineri.",
     bullets: [
       "Metāla, koka un jaukto būvniecības gružu izvešana",
       "Mehāniskā un manuālā būvgružu šķirošana un iekraušana",
@@ -55,7 +55,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 4,
     title: "Zemes ierīcības darbi",
-    description: "SIA 'Demontāža 24/7' veic dažāda apjoma un sarežģītības zemes ierīcības un planēšanas darbus. Mēs piedāvājam jaudīgas tehnikas atbalstu rakšanas, kā arī materiālu izvešanas vai atvešanas darbos.",
+    description: "Mēs veicam dažāda apjoma un sarežģītības zemes ierīcības un planēšanas darbus, tostarp teritoriju līmeņošanas, grāvju un gultņu rakšanas darbus, ceļu būvniecības un grunts materiālu izvešanas un piegādes pakalpojumus.",
     bullets: [
       "Teritoriju līmeņošana, sagatavošana būvniecībai un augsnes izstrāde",
       "Rievsienu un pamatu bedru izbūve, racējdarbi un blīvēšana",
@@ -68,7 +68,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 5,
     title: "Būvgružu konteineru noma",
-    description: "Mēs piedāvājam jebkāda mēroga dzelzs būvgružu konteineru piegādi un nomu. Strādājam ātri – piegāde 24 stundu laikā no pasūtījuma saņemšanas.",
+    description: "Mēs piedāvājam dažāda izmēra dzelzs būvgružu konteineru piegādi un nomu. Strādājam ātri – piegāde parasti notiek 24 stundu laikā no pasūtījuma saņemšanas.",
     bullets: [
       "Pieejami konteineri no 8m³ līdz 30m³ tilpumiem",
       "Ātra piegāde uz Jūsu izvēlēto objektu",
@@ -81,7 +81,7 @@ const SERVICES_DATA: ServiceItem[] = [
   {
     id: 6,
     title: "Tehnikas noma",
-    description: "SIA 'Demontāža 24/7' piedāvā uzticamu un modernu demontāžas, zemes rakšanas un kravas pārvadājumu tehnikas vienību parku ar un bez sertificētu operatoru piesaistes.",
+    description: "Mēs piedāvājam uzticamu un modernu demontāžas, zemes rakšanas un kravas pārvadājumu tehnikas vienību nomu ar un bez sertificētu operatoru piesaistes.",
     bullets: [
       "Kāpurķēžu ekskavatori ar demontāžas šķērēm",
       "Manevrētspējīgi mini ekskavatori un iekrāvēji",
@@ -133,7 +133,7 @@ export default function Pakalpojumi() {
                 <div className="overflow-hidden border border-zinc-150 h-48 sm:h-56 lg:h-44 xl:h-48 rounded-[2px]">
                   <img
                     src={service.imageUrl}
-                    alt={`SIA Demontāža 24/7 - ${service.title}`}
+                    alt={`Demontāža 24/7 - ${service.title}`}
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                     loading="lazy"
                     decoding="async"

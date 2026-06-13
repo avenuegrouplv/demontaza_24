@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Share2, Mail, Phone, MapPin, Building, Shield } from "lucide-react";
+import { Facebook, Instagram, Share2, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
-  const [activeModal, setActiveModal] = useState<"sidknes" | "privatums" | null>(null);
+  const [showSocialAlert, setShowSocialAlert] = useState(false);
+
+  const handleSocialClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowSocialAlert(true);
+  };
 
   useEffect(() => {
-    if (activeModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    if (showSocialAlert) {
+      const timer = setTimeout(() => {
+        setShowSocialAlert(false);
+      }, 4000);
+      return () => clearTimeout(timer);
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [activeModal]);
+  }, [showSocialAlert]);
 
   return (
     <footer className="bg-zinc-950 text-zinc-400 pt-16 pb-8 border-t border-zinc-900" aria-label="Mājaslapas kājene">
@@ -72,8 +75,7 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <a
                 href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
+                onClick={handleSocialClick}
                 className="p-2.5 bg-zinc-900 rounded-[2px] text-zinc-400 hover:text-[#FBBF24] hover:bg-zinc-800 transition-colors"
                 aria-label="Seko mums Facebook"
               >
@@ -81,8 +83,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
+                onClick={handleSocialClick}
                 className="p-2.5 bg-zinc-900 rounded-[2px] text-zinc-400 hover:text-[#FBBF24] hover:bg-zinc-800 transition-colors"
                 aria-label="Seko mums X (Twitter)"
               >
@@ -90,8 +91,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
+                onClick={handleSocialClick}
                 className="p-2.5 bg-zinc-900 rounded-[2px] text-zinc-400 hover:text-[#FBBF24] hover:bg-zinc-800 transition-colors"
                 aria-label="Seko mums Instagram"
               >
@@ -134,124 +134,50 @@ export default function Footer() {
 
           {/* Right legal policy buttons */}
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => setActiveModal("sidknes")}
-              className="text-zinc-550 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
+            <Link
+              to="/sikdatnu-politika"
+              className="text-zinc-400 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
               aria-label="Sīkdatņu politika"
             >
               Sīkdatņu politika
-            </button>
+            </Link>
             <span className="text-zinc-800">I</span>
-            <button
-              onClick={() => setActiveModal("privatums")}
-              className="text-zinc-550 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
+            <Link
+              to="/privatuma-politika"
+              className="text-zinc-400 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
               aria-label="Privātuma politika"
             >
               Privātuma politika
-            </button>
+            </Link>
           </div>
 
         </div>
 
       </div>
 
-      {/* Sīkdatņu Politikas Modal Dialog */}
-      {activeModal === "sidknes" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-2xl bg-[#111827] border border-zinc-800 p-6 sm:p-8 shadow-2xl rounded-[2px] max-h-[85vh] overflow-y-auto">
-            <div className="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
-              <Shield className="h-5 w-5 text-[#FBBF24]" />
-              <h2 className="text-white text-lg font-bold">Sīkdatņu politika</h2>
-            </div>
-            
-            <div className="space-y-4 text-zinc-300 text-sm leading-relaxed font-sans pr-1">
-              <p className="font-semibold text-[#FBBF24]">Pēdējo reizi atjaunināts: 2026. gada jūnijā</p>
-              <p>
-                SIA “Demontāža 24/7” izmanto sīkdatnes (cookies) mūsu tīmekļa vietnē, lai uzlabotu tās darbību, nodrošinātu drošību un analizētu satiksmi. Šajā politikā ir aprakstīts, kādas sīkdatnes mēs izmantojam un kāpēc.
-              </p>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">1. Kas ir sīkdatne?</h3>
-              <p>
-                Sīkdatne ir neliels failu kopums, kas tiek nosūtīts uz jūsu pārlūkprogrammu no vietnes servera un saglabāts jūsu ierīces (datora, planšetdatora vai viedtālruņa) cietajā diskā. Tie palīdz vietnei atpazīt jūsu ierīci nākamajā apmeklējuma reizē.
-              </p>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">2. Kādas sīkdatnes mēs izmantojam?</h3>
-              <p>
-                Mēs izmantojam divu veidu sīkdatnes:
-              </p>
-              <ul className="list-disc list-inside space-y-2 pl-2">
-                <li><strong className="text-[#FBBF24]">Nepieciešamās sīkdatnes:</strong> Šīs sīkdatnes ir būtiskas, lai vietne darbotos pareizi un nodrošinātu drošu sesijas vadību.</li>
-                <li><strong className="text-[#FBBF24]">Analītiskās sīkdatnes:</strong> Palīdz mums saprast, kā lietotāji mijiedarbojas ar vietni (piemēram, apmeklētās lapas, pavadītais laiks), lai mēs varētu turpināt uzlabot vietnes lietošanas ērtumu.</li>
-              </ul>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">3. Sīkdatņu pārvaldība</h3>
-              <p>
-                Lielākā daļa tīmekļa pārlūkprogrammu ļauj jums kontrolēt sīkdatnes, izmantojot to iestatījumus. Jūs varat bloķēt sīkdatņu saglabāšanu vai izdzēst jau esošās. Lūdzu, ņemiet vērā, ka dažu nepieciešamo sīkdatņu bloķēšana var ietekmēt vietnes darbības funkcionalitāti.
-              </p>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-zinc-800 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setActiveModal(null)}
-                className="cursor-pointer bg-[#FBBF24] hover:bg-[#FBBF24]/90 text-[#111827] px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-[2px] transition-all"
-                aria-label="Aizvērt sīkdatņu politiku"
-              >
-                Aizvērt
-              </button>
-            </div>
+      {/* Social Alert Toast Notification */}
+      <div 
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-300 transform ${
+          showSocialAlert ? "translate-y-0 opacity-100 scale-100" : "translate-y-4 opacity-0 scale-95 pointer-events-none"
+        }`}
+      >
+        <div className="bg-zinc-900 border-2 border-[#FBBF24] text-white p-4 pr-12 shadow-2xl rounded-[2px] flex items-center gap-3 max-w-sm relative">
+          <span className="p-1.5 bg-[#FBBF24] text-zinc-950 rounded-full shrink-0">
+            <Share2 className="h-4 w-4 stroke-[3px]" />
+          </span>
+          <div className="font-sans">
+            <p className="font-extrabold text-xs uppercase tracking-wider text-[#FBBF24]">Sociālie tīkli</p>
+            <p className="text-zinc-300 text-xs mt-0.5 font-medium leading-relaxed">Informācija šobrīd ir izstrādes stadijā.</p>
           </div>
+          <button 
+            onClick={() => setShowSocialAlert(false)}
+            className="absolute top-2 right-2 text-zinc-500 hover:text-white text-base cursor-pointer font-black leading-none p-1 focus:outline-none"
+            aria-label="Aizvērt paziņojumu"
+          >
+            ×
+          </button>
         </div>
-      )}
-
-      {/* Privātuma Politikas Modal Dialog */}
-      {activeModal === "privatums" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-2xl bg-[#111827] border border-zinc-800 p-6 sm:p-8 shadow-2xl rounded-[2px] max-h-[85vh] overflow-y-auto">
-            <div className="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
-              <Building className="h-5 w-5 text-[#FBBF24]" />
-              <h2 className="text-white text-lg font-bold">Privātuma politika</h2>
-            </div>
-            
-            <div className="space-y-4 text-zinc-300 text-sm leading-relaxed font-sans pr-1">
-              <p className="font-semibold text-[#FBBF24]">Pēdējo reizi atjaunināts: 2026. gada jūnijā</p>
-              <p>
-                SIA “Demontāža 24/7” rūpējas par jūsu privātumu un apņemas aizsargāt jūsu personas datus saskaņā ar Eiropas Parlamenta un Padomes Regulu (ES) 2016/679 (Vispārīgā datu aizsardzības regula jeb VDAR) un citiem LR piemērojamiem tiesību aktiem.
-              </p>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">1. Kādi personas dati tiek apstrādāti?</h3>
-              <p>
-                Aizpildot saziņas formu mūsu vietnē, mēs apkopojam šādus datus:
-              </p>
-              <ul className="list-disc list-inside space-y-2 pl-2">
-                <li>Vārds un/vai Uzņēmuma nosaukums</li>
-                <li>E-pasta adrese</li>
-                <li>Tālruņa numurs (pēc izvēles)</li>
-                <li>Ziņojuma saturs un informācija par objektu</li>
-              </ul>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">2. Apstrādes mērķis un tiesiskais pamats</h3>
-              <p>
-                Dati tiek apstrādāti vienīgi tādēļ, lai atbildētu uz jūsu pieprasījumiem, sagatavotu bezmaksas tāmi demontāžas pakalpojumiem un nodrošinātu turpmāko sadarbību. Apstrāde pamatojas uz jūsu piekrišanu un rīcību pirms līguma noslēgšanas.
-              </p>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">3. Datu glabāšanas ilgums</h3>
-              <p>
-                Mēs uzglabāsim jūsu personas datus tikai tik ilgi, cik nepieciešams šajā privātuma politikā noteikto mērķu sasniegšanai vai LR tiesību aktos noteikto prasību izpildei.
-              </p>
-              <h3 className="text-white font-bold mt-4 text-xs tracking-wider uppercase">4. Jūsu tiesības</h3>
-              <p>
-                Jums ir tiesības pieprasīt piekļuvi saviem datiem, labot nepareizus datus, iebilst pret apstrādi vai lūgt datu dzēšanu, sazinoties ar mums pa e-pastu: <a href="mailto:info@demontaza24.eu" className="text-[#FBBF24] underline">info@demontaza24.eu</a>.
-              </p>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-zinc-800 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setActiveModal(null)}
-                className="cursor-pointer bg-[#FBBF24] hover:bg-[#FBBF24]/90 text-[#111827] px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-[2px] transition-all"
-                aria-label="Aizvērt privātuma politiku"
-              >
-                Aizvērt
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
 
     </footer>
   );

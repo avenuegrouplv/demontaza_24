@@ -29,32 +29,46 @@ function CurledCorner() {
     <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none z-20" aria-hidden="true">
       <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="curlGold" x1="48" y1="48" x2="0" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FBBF24" />
-            <stop offset="45%" stopColor="#FBBF24" />
-            <stop offset="75%" stopColor="#FEF08A" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#D97706" />
+          {/* Real-world volumetric golden curl gradient */}
+          <linearGradient id="curlGold" x1="12" y1="0" x2="48" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#B45309" /> {/* Deep dark bronze base */}
+            <stop offset="30%" stopColor="#FBBF24" /> {/* Vibrant sunny yellow */}
+            <stop offset="55%" stopColor="#FCD34D" /> {/* Bright cream highlights */}
+            <stop offset="85%" stopColor="#FBBF24" /> {/* Standard gold body */}
+            <stop offset="100%" stopColor="#92400E" /> {/* Warm ambient shade */}
           </linearGradient>
-          <radialGradient id="curlShadow" cx="48" cy="0" r="48" fx="48" fy="0" gradientUnits="userSpaceOnUse">
+          
+          {/* Dark high-contrast inner hole cut gradient */}
+          <linearGradient id="interiorHole" x1="12" y1="0" x2="48" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#18181B" />  {/* Zinc-900 back dark */}
+            <stop offset="40%" stopColor="#27272A" /> {/* Zinc-800 middle gradient */}
+            <stop offset="75%" stopColor="#3F3F46" /> {/* Zinc-700 transition */}
+            <stop offset="100%" stopColor="#52525B" />{/* Zinc-600 soft edge bleed */}
+          </linearGradient>
+
+          {/* Real soft ambient shadowing underneath the leaf flare */}
+          <radialGradient id="softFloorDrop" cx="12" cy="0" r="40" fx="12" fy="0" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#000000" stopOpacity="0.8" />
-            <stop offset="40%" stopColor="#000000" stopOpacity="0.45" />
-            <stop offset="75%" stopColor="#000000" stopOpacity="0.12" />
+            <stop offset="45%" stopColor="#000000" stopOpacity="0.4" />
+            <stop offset="75%" stopColor="#000000" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#000000" stopOpacity="0" />
           </radialGradient>
         </defs>
         
-        {/* Under-shadow curve on the page */}
-        <path d="M 12 0 C 22 8, 36 22, 48 34 C 40 31, 26 18, 12 0 Z" fill="#000000" opacity="0.35" />
+        {/* Under-shadow representation for the physical leaf lift */}
+        <path d="M 12 0 C 18 16, 26 26, 48 34 C 36 28, 22 14, 12 0 Z" fill="url(#softFloorDrop)" opacity="0.8" />
         
-        {/* Dark page interior background cut representing peeling shadow */}
-        <path d="M 12 0 C 22 4, 42 22, 48 34 L 48 0 Z" fill="#1c1917" />
+        {/* Dark page interior background representing the realistic peeled under-layer slit */}
+        <path d="M 12 0 C 18 12, 32 26, 48 34 L 48 0 Z" fill="url(#interiorHole)" />
         
-        {/* Beautiful curled gold element with rounded Bezier lift */}
-        <path d="M 12 0 C 17 17, 28 28, 48 34 C 34 31, 19 20, 12 0 Z" fill="url(#curlGold)" />
-        <path d="M 12 0 C 17 17, 28 28, 48 34" stroke="#FEF08A" strokeWidth="1" strokeLinecap="round" opacity="0.9" />
+        {/* The organic curled page element - beautifully asymmetrical and curved Bezier lines */}
+        <path d="M 12 0 C 18 16, 28 26, 48 34 C 33 24, 20 10, 12 0 Z" fill="url(#curlGold)" />
         
-        {/* Subtle interior curl shade */}
-        <path d="M 12 0 C 17 17, 28 28, 48 34 L 48 0 Z" fill="url(#curlShadow)" />
+        {/* A fine, gleaming highlight stroke along the curled fold border for realistic depth */}
+        <path d="M 12 0 C 18 16, 28 26, 48 34" stroke="#FEF08A" strokeWidth="1.2" strokeLinecap="round" opacity="0.85" />
+        
+        {/* Additional 3D shadow blend inside the curl flap's inner face */}
+        <path d="M 12 0 C 18 16, 26 26, 48 34" stroke="#78350F" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
       </svg>
     </div>
   );
@@ -65,29 +79,29 @@ const CAROUSEL_SLIDES: CarouselSlide[] = [
   {
     id: 1,
     url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp",
-    title: "PROFESIONĀLA DEMONTĀŽA",
-    subtitle: "Precīzi plānoti un droši demontāžas darbi pirms renovācijas uzsākšanas.",
+    title: "Demontāžas pakalpojumi",
+    subtitle: "Precīzi plānoti un droši demontāžas darbi pirms renovācijas uzsākšanas",
     alt: "ekskavators-veic-buves-nojauksanu-1"
   },
   {
     id: 2,
     url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp",
-    title: "INDUSTRIĀLĀ NOJAUKŠANA",
-    subtitle: "Sarežģītu, bīstamu vai nolietotu ēku likvidēšana visā Latvijā.",
+    title: "Industriālo ēku nojaukšana",
+    subtitle: "Sarežģītu, bīstamu un nolietotu ēku nojaukšana visā Latvijā",
     alt: "ekskavators-veic-buves-nojauksanu-2"
   },
   {
     id: 3,
     url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp",
-    title: "ATBILDĪGA APSTRĀDE",
-    subtitle: "Būvgružu šķirošana un 100% licencēta nodošana otrreizējai pārstrādei.",
+    title: "Būvgružu izvešana",
+    subtitle: "Būvgružu šķirošana, izvešana un licencēta nodošana otrreizējai pārstrādei",
     alt: "ekskavators-veic-buves-nojauksanu-3"
   },
   {
     id: 4,
     url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_4.webp",
-    title: "STRĀDĀJAM STRUKTURĒTI",
-    subtitle: "No saskaņošanas būvvaldē līdz teritorijas pilnīgai nodošanai ekspluatācijā.",
+    title: "Mūsu darba struktūra",
+    subtitle: "No saskaņošanas būvvaldē līdz teritorijas pilnīgai nodošanai ekspluatācijā",
     alt: "ekskavators-veic-buves-nojauksanu-4"
   }
 ];
@@ -97,7 +111,7 @@ const FAQS_HOME: FaqItem[] = [
   {
     id: 1,
     question: "Cik maksā mājas nojaukšana Latvijā un kā veidojas tāme?",
-    answer: "Nojaukšanas izmaksas ir atkarīgas no ēkas apjoma kubikmetros, materiālu tipa (koks, ķieģelis, dzelzbetons), atrašanās vietas, piekļuves iespējām un nepieciešamās tehnikas. Katram projektam SIA 'Demontāža 24/7' sagatavo individuālu tāmi bez maksas."
+    answer: "Nojaukšanas izmaksas ir atkarīgas no ēkas apjoma kubikmetros, materiālu tipa (koks, ķieģelis, dzelzbetons), atrašanās vietas, piekļuves iespējām un nepieciešamās tehnikas. Katram projektam sagatavojam individuālu tāmi bez maksas."
   },
   {
     id: 2,
@@ -353,12 +367,12 @@ export default function Home() {
               <h2 className="text-zinc-900 text-xl sm:text-2xl font-bold tracking-tight border-l-4 border-[#FBBF24] pl-4 leading-normal uppercase">
                 Jūsu uzticamais partneris demontāžas nozarē jau vairāk nekā 20 gadus
               </h2>
-              <div className="space-y-4 text-zinc-600 text-sm sm:text-base leading-relaxed font-sans">
+              <div className="space-y-4 text-zinc-650 text-base sm:text-lg leading-relaxed font-sans">
                 <p>
-                  SIA "Demontāža 24/7" savu darbību uzsāka ar mērķi nodrošināt augstākās kvalitātes un drošības standartiem atbilstošus demontāžas pakalpojumus. Divu gadu desmitu laikā esam veiksmīgi likvidējuši gan nelielas privātmājas, gan komplicētus industriālos kompleksus. Mēs stingri sekojam vides aizsardzības noteikumiem, nodrošinot pilnu materiālu otrreizējo pārstrādi un teritorijas sakopšanu.
+                  Mēs savu darbību uzsākām ar mērķi nodrošināt saviem klientiem augstākās kvalitātes un drošības standartiem atbilstošus demontāžas pakalpojumus. Divu gadu desmitu laikā esam veiksmīgi likvidējuši gan nelielas privātmājas, gan komplicētus industriālos kompleksus. Esam sadarbojušies gan ar privātīpašniekiem, kā arī uzņēmumiem un valsts pārvaldes iestādēm. Mēs savā darbā stingri sekojam vides aizsardzības noteikumiem, nodrošinot pilnu materiālu otrreizējo pārstrādi un teritorijas sakopšanu.
                 </p>
                 <p>
-                  Mūsu ilgtermiņa vīzija balstās uz nevainojamu tirgus precizitāti un inženiertehnisko izcilību. Katrā projektā mēs apvienojam gadu desmitos uzkrātās zināšanas ar inovatīvām metodēm, kas garantē augstāko uzticamības līmeni un savlaicīgu apņemšanos izpildi bez liekiem kavējumiem.
+                  Mūsu labā reputācija ilgtermiņā balstās uz nevainojamu drošības standartu ievērošanu un abpusēju uzticību. Katrā projektā un darbā ar mūsu klientiem mēs apvienojam gadu desmitos uzkrātās zināšanas, kas garantē augstāko uzticamības un drošības līmeni, un savlaicīgu apņemšanos izpildīt darbu bez liekiem kavējumiem.
                 </p>
               </div>
             </div>
@@ -445,7 +459,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-base font-extrabold text-zinc-900 mb-2 uppercase tracking-wide">Ēku un būvju nojaukšana</h3>
                 <p className="text-zinc-650 text-xs sm:text-sm leading-relaxed mb-5 font-sans">
-                  Sarežģītu, bīstamu vai nolietotu ēku mehāniskā nojaukšana, izmantojot speciālu tehniku un nodrošinot augstāko drošības līmeni.
+                  Sarežģītu, bīstamu vai nolietotu ēku nojaukšana, izmantojot mūsu specializēto tehniku, nodrošinot augstāko drošības līmeni un darba kvalitāti.
                 </p>
               </div>
               <Link
@@ -499,7 +513,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-base font-extrabold text-zinc-900 mb-2 uppercase tracking-wide">Zemes ierīcības darbi</h3>
                 <p className="text-zinc-650 text-xs sm:text-sm leading-relaxed mb-5 font-sans">
-                  Kvalitatīvi teritoriju planēšanas, līmeņošanas, grāvju un gultņu rakšanas un grunts materiālu (smilts, šķembas) piegādes pakalpojumi.
+                  Kvalitatīvi teritoriju planēšanas, līmeņošanas, grāvju un gultņu rakšanas darbi, ceļu būvniecības un grunts materiālu (smilts, šķembas) piegādes pakalpojumi.
                 </p>
               </div>
               <Link
@@ -525,8 +539,8 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="text-base font-extrabold text-zinc-900 mb-2 uppercase tracking-wide">Būvgružu konteineru noma</h3>
-                <p className="text-zinc-655 text-xs sm:text-sm leading-relaxed mb-5 font-sans">
-                  Profesionāla konteineru piegāde un noma būvniecības atkritumu un lielgabarīta gružu nogādāšanai uz licencētiem poligoniem.
+                <p className="text-zinc-650 text-xs sm:text-sm leading-relaxed mb-5 font-sans">
+                  Būvgružu konteineru piegāde un noma būvniecības atkritumu un lielgabarīta būvgružu nogādāšanai uz licencētiem poligoniem.
                 </p>
               </div>
               <Link
@@ -585,9 +599,9 @@ export default function Home() {
               { title: "20+ gadu pieredze", desc: "Mūsu gadu gaitā uzkrātā pieredze garantē katra, pat vissarežģītākā, objekta kvalitatīvu un precīzu realizāciju." },
               { title: "Profesionāla tehnika", desc: "Pašu tehnikas parks – no speciāliem ekskavatoriem līdz smagajai kāpurķēžu tehnikai katram uzdevumam." },
               { title: "Licencēta būvgružu utilizācija", desc: "Nodrošinām likumīgu būvniecības atkritumu šķirošanu un oficiālu utilizācijas dokumentu sagatavošanu iesniegšanai Būvvaldē." },
-              { title: "Darbs visā Baltijā", desc: "Pateicoties labotai transportēšanai un vadībai, operatīvi ierodamies jebkurā vietā visā Baltijas teritorijā." },
-              { title: "Bezmaksas objekta apskate", desc: "Mūsu inženieri dosies uz Jūsu objektu, lai klātienē izvērtētu stāvokli un veiktu mērījumus pilnīgi bez maksas." },
-              { title: "Operatīva tāme", desc: "Sagatavojam detalizētu darbu tāmi bez jebkādām slēptām izmaksām 24 stundu laikā pēc vizītes." }
+              { title: "Darbs visā Baltijā", desc: "Pateicoties mūsu gadu gaitā pārbaudītajai vadības sistēmai, mēs varam operatīvi ierasties jebkurā objektā visā Baltijas teritorijā." },
+              { title: "Bezmaksas objekta apskate", desc: "Mūsu inženieri dodas uz mūs klientu objektiem, lai klātienē izvērtētu stāvokli, veiktu mērījumus un aprēķinus bez maksas." },
+              { title: "Operatīva tāme", desc: "Sagatavojam detalizētu darbu izmaksu tāmi bez jebkādām slēptām izmaksām 24 stundu laikā pēc vizītes objektā." }
             ].map((item, idx) => (
               <div 
                 key={idx} 
@@ -624,12 +638,12 @@ export default function Home() {
             {[
               {
                 title: "Objekta apskate",
-                desc: "Bezmaksas inženiera vizīte, lai precīzi novērtētu ēkas stāvokli, fiziskos izmērus un blakusbūvju riskus.",
+                desc: "Mūsu inženiera vizīte klienta objektā, lai precīzi novērtētu ēkas stāvokli, fiziskos izmērus un blakusbūvju riskus.",
                 img: "https://images.unsplash.com/photo-1581094288338-2314dddb7eed?q=80&w=400"
               },
               {
                 title: "Tāmes sastādīšana",
-                desc: "Sagatavojam caurspīdīgu, fiksētu cenu tāmi 24 stundu laikā bez pēkšņām slēptām izmaksām.",
+                desc: "Sagatavojam detalizētu darbu izmaksu tāmi ar fiksētu cenu 24 stundu laikā pēc mūsu inženiera vizītes klienta objektā.",
                 img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400"
               },
               {
@@ -639,22 +653,22 @@ export default function Home() {
               },
               {
                 title: "Demontāžas darbi",
-                desc: "Prasmīga kontrolēta demontāža, izmantojot mūsu specializēto ekskavatoru un roku tehnikas parku.",
+                desc: "Profesionāla un prasmīgi kontrolēta objekta demontāža, izmantojot mūsu specializēto demontāžas tehniku.",
                 img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp"
               },
               {
                 title: "Būvgružu izvešana",
-                desc: "Operatīva atkritumu iekrāve konteineros un nodošana licencētiem pārstrādātājiem ar utilizācijas aktiem.",
+                desc: "Operatīva atkritumu iekraušana konteineros un nodošana licencētiem pārstrādātājiem ar utilizācijas aktiem.",
                 img: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=400"
               },
               {
-                title: "Zemes sakopšana",
-                desc: "Pilnīga teritorijas sakārtošana: pamatu bedru aizbēršana, augsnes nolīdzināšana un teritorijas tīrība.",
+                title: "Teritorijas sakopšana",
+                desc: "Teritorijas sakopšana pēc demontāžas darbu beigšanas, tostarp bedru aizbēršana un augsnes nolīdzināšana.",
                 img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp"
               },
               {
                 title: "Objekta nodošana",
-                desc: "Būves dzēšana no VZD kadastra, dokumentu iesniegšana Būvvaldē un sekmīga objekta ekspluatācijas pabeigšana.",
+                desc: "Demontētās būves dzēšana no VZD kadastra, dokumentu iesniegšana Būvvaldē un objekta nodošana ekspluatācijā.",
                 img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400"
               }
             ].map((process, index) => (
@@ -667,7 +681,7 @@ export default function Home() {
                   <div className="relative h-44 w-full overflow-hidden bg-zinc-900 rounded-[1px] mb-4 border border-zinc-100">
                     <img 
                       src={process.img} 
-                      alt={`SIA Demontāža - ${process.title}`} 
+                      alt={`Demontāža - ${process.title}`} 
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
@@ -700,7 +714,7 @@ export default function Home() {
             {[
               {
                 title: "Būvkomersanta reģistrācija",
-                desc: "Oficiāli reģistrēts būvkomersants Latvijas Republikas Būvkomersantu reģistrā. Tas apliecina uzņēmuma pilnas tiesības vadīt, noformēt un droši izpildīt ēku jaukšanas darbus.",
+                desc: "Oficiāli reģistrēts būvkomersants, kas reģistrēts LR Būvkomersantu reģistrā. Tas apliecina mūsu uzņēmuma pilnas tiesības vadīt, noformēt un droši izpildīt ēku demontāžas darbus.",
                 icon: <Building className="h-5 w-5 text-amber-600" />
               },
               {
@@ -902,8 +916,8 @@ export default function Home() {
 
       {/* CONTACT FORM SECTION (Durable and clean backdrop frame with beautiful border accents) */}
       <section id="contact-section-home" className="py-12 bg-zinc-200 border-t border-zinc-300" aria-label="Sazināties formā">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <div className="bg-[#27272a] border border-zinc-800 p-5 sm:px-8 sm:py-6 rounded-[2px] shadow-2xl">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <div className="bg-[#27272a] border border-zinc-800 p-6 sm:px-10 sm:py-9 rounded-[2px] shadow-2xl">
             
             <div className="text-center mb-10">
               <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest block font-mono">Sazinieties ar mums</span>
@@ -918,14 +932,14 @@ export default function Home() {
                 </span>
                 <p className="text-white font-bold text-lg mb-2">Paldies!</p>
                 <p className="text-zinc-300 text-sm leading-relaxed max-w-lg mx-auto">
-                  Jūsu pieteikums ir saņemts. SIA "Demontāža 24/7" speciālists sazināsies ar Jums tuvāko stundu laikā.
+                  Jūsu pieteikums ir saņemts. Mūsu speciālists sazināsies ar Jums tuvāko stundu laikā.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
+              <form onSubmit={handleFormSubmit} className="space-y-5 sm:space-y-6">
                 
-                <div className="text-zinc-300 text-xs leading-relaxed font-sans pb-3 border-b border-zinc-800">
-                  Aizpildiet zemāk esošo formu un piesakiet bezmaksas tāmi sava objekta demontāžai. Pirms darbu sākšanas sniegsim pilnvērtīgu konsultāciju un palīdzēsim ar Būvvaldes dokumentācijas saskaņošanu.
+                <div className="text-zinc-200 text-xs sm:text-sm text-center leading-relaxed font-sans pb-4 border-b border-zinc-800 font-medium font-semibold">
+                  Aizpildiet zemāk esošo formu un piesakiet bezmaksas tāmi sava objekta demontāžas darbiem vai tehnikas nomai. Pirms darbu sākšanas sniegsim pilnvērtīgu konsultāciju un palīdzēsim ar Būvvaldes dokumentācijas saskaņošanu.
                 </div>
 
                 {/* Name */}
@@ -943,7 +957,7 @@ export default function Home() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                       placeholder=""
                     />
                   </div>
@@ -953,7 +967,7 @@ export default function Home() {
                 </div>
 
                 {/* Email & Phone side by side */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   
                   {/* Email */}
                   <div className="space-y-2">
@@ -961,7 +975,7 @@ export default function Home() {
                       E-pasts saziņai <span className="text-[#FBBF24]">*</span>
                     </label>
                     <div className="relative">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#A1A1AA]">
                         <Mail className="h-4 w-4" />
                       </span>
                       <input
@@ -970,7 +984,7 @@ export default function Home() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                         placeholder=""
                       />
                     </div>
@@ -985,7 +999,7 @@ export default function Home() {
                       Tālruņa numurs <span className="text-[#FBBF24]">*</span>
                     </label>
                     <div className="relative">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#A1A1AA]">
                         <Phone className="h-4 w-4" />
                       </span>
                       <input
@@ -994,7 +1008,7 @@ export default function Home() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                        className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                         placeholder=""
                       />
                     </div>
@@ -1011,16 +1025,16 @@ export default function Home() {
                     Ziņa / Objekta detaļas <span className="text-[#FBBF24]">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute top-3.5 left-3 text-zinc-400">
+                    <span className="absolute top-3.5 left-3 text-[#A1A1AA] font-bold select-none">
                       <MessageSquare className="h-4 w-4" />
                     </span>
                     <textarea
                       id="message"
                       name="message"
-                      rows={4}
+                      rows={5}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-2.5 text-sm focus:outline-none rounded-[2px] transition-colors"
+                      className="w-full bg-[#18181b] border border-zinc-800 hover:border-zinc-700 focus:border-[#FBBF24] text-white pl-10 pr-4 py-3 text-sm focus:outline-none rounded-[2px] transition-colors"
                       placeholder="Lūdzu aprakstiet sev nepieciešamo pakalpojumu."
                     />
                   </div>
@@ -1030,7 +1044,7 @@ export default function Home() {
                 </div>
 
                 {/* Subtle legal disclaimer note */}
-                <p className="text-zinc-500 text-[10px] sm:text-xs">
+                <p className="text-zinc-400 text-[11px] sm:text-xs">
                   Nospiežot 'Sūtīt pieteikumu', Jūs piekrītat mūsu Privātuma politikai un personas datu apstrādei, lai sagatavotu bezmaksas tāmi.
                 </p>
 

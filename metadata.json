@@ -1,6 +1,6 @@
 {
   "name": "Demontāža 24/7",
-  "description": "SIA 'Demontāža 24/7' - Profesionāli būvju un ēku demontāžas, zemes ierīcības un būvgružu utilizācijas pakalpojumi visā Latvijā.",
+  "description": "Demontāža 24/7 - Profesionāli būvju un ēku demontāžas, zemes ierīcības un būvgružu utilizācijas pakalpojumi visā Latvijā.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

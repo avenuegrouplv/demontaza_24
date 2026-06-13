@@ -7,7 +7,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     id: 1,
     question: "Cik maksā mājas nojaukšana Latvijā un kā veidojas tāme?",
-    answer: "Nojaukšanas izmaksas ir atkarīgas no ēkas apjoma kubikmetros, materiālu tipa (koks, ķieģelis, dzelzbetons), atrašanās vietas, piekļuves iespējām un nepieciešamās tehnikas. Katram projektam SIA 'Demontāža 24/7' sagatavo individuālu tāmi bez maksas."
+    answer: "Nojaukšanas izmaksas ir atkarīgas no ēkas apjoma kubikmetros, materiālu tipa (koks, ķieģelis, dzelzbetons), atrašanās vietas, piekļuves iespējām un nepieciešamās tehnikas. Katram projektam sagatavojam individuālu tāmi bez maksas."
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const ALL_FAQS: FaqItem[] = [
   },
   {
     id: 4,
-    question: "Kādos reģionos strādā SIA 'Demontāža 24/7'?",
+    question: "Kādos reģionos mēs strādājam?",
     answer: "Mēs nodrošinām demontāžas, jaukšanas un būvgružu izvešanas pakalpojumus visā Latvijas teritorijā, koncentrējoties uz Rīgu, Pierīgu, Zemgali, Kurzemi un Vidzemi."
   },
   {
@@ -57,7 +57,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     id: 11,
     question: "Vai piedāvājat būvniecības un demontāžas tehnikas nomu?",
-    answer: "Jā, SIA 'Demontāža 24/7' piedāvā modernu kāpurķēžu ekskavatoru, mini ekskavatoru, kravas pašizgāzēju un būvgružu konteineru nomu. Noma ir pieejama gan uz stundām, gan uz ilgākiem termiņiem, komplektācijā ar mūsu pieredzējušiem un licencētiem operatoriem – lai nodrošinātu maksimālu drošību un efektivitāti Jūsu objektā."
+    answer: "Jā, mēs piedāvājam modernu kāpurķēžu ekskavatoru, mini ekskavatoru, kravas pašizgāzēju un būvgružu konteineru nomu. Noma ir pieejama gan uz stundām, gan uz ilgākiem termiņiem, komplektācijā ar mūsu pieredzējušiem un licencētiem operatoriem – lai nodrošinātu maksimālu drošību un efektivitāti Jūsu objektā."
   }
 ];
 

@@ -122,7 +122,7 @@ export default function MusuTehnika() {
                   <div className="relative h-44 sm:h-48 md:h-52 w-full overflow-hidden bg-zinc-900 border-b border-zinc-100">
                     <img 
                       src={item.imageUrl} 
-                      alt={`SIA Demontāža 24/7 - ${item.title}`} 
+                      alt={`Tehnika - ${item.title}`} 
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
                       loading="lazy"
                       referrerPolicy="no-referrer"
@@ -196,7 +196,7 @@ export default function MusuTehnika() {
               <HardHat className="h-5 w-5 text-[#FBBF24]" /> Operatīvs atbalsts un piegāde visā Latvijā
             </h3>
             <p className="text-zinc-650 text-xs sm:text-sm leading-relaxed font-sans">
-              Mēs paši nogādājam nepieciešamo tehniku un konteinerus uz jebkuru vietu Latvijā, Lietuvā un Igaunijā. Tehnikas noma ietver regulāru tehnisko apkopi un nepieciešamības gadījumā ātru vienības nomaiņu, lai nepieļautu dīkstāvi Jūsu būvlaukumā.
+              Mēs paši nogādājam nepieciešamo tehniku un konteinerus uz jebkuru vietu Latvijā, Lietuvā un Igaunijā. Tehnikas noma ietver regulāru tehnisko apkopi un nepieciešamības gadījumā ātru vienības nomaiņu, lai nepieļautu dīkstāvi mūsu klientu būvlaukumā.
             </p>
           </div>
 
