@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /pakalpojumi
+Allow: /buj
+Allow: /galerija
+Allow: /kontakti
+
+Sitemap: https://demontaza24.eu/sitemap.xml

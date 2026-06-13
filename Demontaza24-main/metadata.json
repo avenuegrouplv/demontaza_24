@@ -1,0 +1,6 @@
+{
+  "name": "Demontaza LV",
+  "description": "Demontāžas darbu platformas balta sagatave",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
