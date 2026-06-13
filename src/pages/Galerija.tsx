@@ -37,13 +37,13 @@ const SECTIONS_DATA: Section[] = [
       {
         id: "eku-1",
         isTemplate: false,
-        title: "Daudzdzīvokļu dzīvojamās ēkas demontāža",
+        title: "Dzīvojamās ēkas demontāža Rīgā",
         location: "Rīga",
         volume: "2500 m²",
         duration: "3 nedēļas",
         details: "Izvesti 850 m³ betona un jaukto būvgružu, droša procesa norise pilsētvidē.",
         images: [
-          { id: 1, url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600", alt: "ēku-demontāža-rīga-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp", alt: "ēku-demontāža-rīga-1" },
           { id: 2, url: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=600", alt: "ēku-demontāža-rīga-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=600", alt: "ēku-demontāža-rīga-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600", alt: "ēku-demontāža-rīga-4" },
@@ -62,13 +62,13 @@ const SECTIONS_DATA: Section[] = [
       {
         id: "priv-1",
         isTemplate: false,
-        title: "Koka un mūra privātmājas demontāža",
+        title: "Divstāvu mūra privātmājas demontāža Jūrmalā",
         location: "Jūrmala",
         volume: "320 m²",
         duration: "5 dienas",
         details: "Pilnīga teritorijas nolīdzināšana, pamatu izrakšana un laukuma sakopšana.",
         images: [
-          { id: 1, url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600", alt: "privātmāju-nojaukšana-jūrmala-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/privatmaju-demontaza.webp", alt: "privātmāju-nojaukšana-jūrmala-1" },
           { id: 2, url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600", alt: "privātmāju-nojaukšana-jūrmala-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1513828729020-041400e47fe5?q=80&w=600", alt: "privātmāju-nojaukšana-jūrmala-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600", alt: "privātmāju-nojaukšana-jūrmala-4" },
@@ -81,19 +81,19 @@ const SECTIONS_DATA: Section[] = [
   },
   {
     id: 3,
-    name: "Šķūņu demontāža",
-    tag: "ŠĶŪŅU DEMONTĀŽA",
+    name: "Palīgēku demontāža",
+    tag: "PALĪGĒKU DEMONTĀŽA",
     galleries: [
       {
         id: "skun-1",
         isTemplate: false,
-        title: "Nolietotas palīgbūves un vecā šķūņa demontāža",
+        title: "Gāzbetona palīgēkas demontāža Kuldīgā",
         location: "Kuldīga",
         volume: "95 m²",
         duration: "2 dienas",
         details: "Koka konstrukciju nojaukšana, materiālu šķirošana un teritorijas sakopšana.",
         images: [
-          { id: 1, url: "https://images.unsplash.com/photo-1513828729020-041400e47fe5?q=80&w=600", alt: "skunu-demontāža-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/paligekas-demontaza.webp", alt: "paligekas-demontaza" },
           { id: 2, url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600", alt: "skunu-demontāža-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600", alt: "skunu-demontāža-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=600", alt: "skunu-demontāža-4" },
@@ -112,13 +112,13 @@ const SECTIONS_DATA: Section[] = [
       {
         id: "ind-1",
         isTemplate: false,
-        title: "Ražošanas un noliktavas ēkas demontāža",
+        title: "Dzelzbetona ražošanas ceha demontāža Daugavpilī",
         location: "Daugavpils",
         volume: "8400 m³",
         duration: "4 nedēļas",
         details: "Nojaukta ēka, kas bija būvēta no gāzbetona un metāla konstrukcijām, pilnībā attīrot teritoriju.",
         images: [
-          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp", alt: "industriālo-objektu-demontāža-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/industriala-objekta-demontaza.webp", alt: "industriālo-objektu-demontāža-1" },
           { id: 2, url: "https://images.unsplash.com/photo-1590348697109-ae9ce0f0111f?q=80&w=600", alt: "industriālo-objektu-demontāža-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=600", alt: "industriālo-objektu-demontāža-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600", alt: "industriālo-objektu-demontāža-4" },
@@ -137,13 +137,13 @@ const SECTIONS_DATA: Section[] = [
       {
         id: "gruz-1",
         isTemplate: false,
-        title: "Būvniecības gružu un sārņu utilizēšana",
+        title: "Būvgružu šķirošana un izvešana no objekta Mārupē",
         location: "Mārupe",
         volume: "450 m³",
         duration: "3 dienas",
         details: "Šķiroto atkritumu iekraušana un izvešana uz licencēto reģionālo atkritumu poligonu.",
         images: [
-          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_4.webp", alt: "buvgruzu-izvesana-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-izvesana.webp", alt: "buvgruzu-izvesana-1" },
           { id: 2, url: "https://images.unsplash.com/photo-1605712771501-c889a74fb12f?q=80&w=600", alt: "buvgruzu-izvesana-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=600", alt: "buvgruzu-izvesana-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600", alt: "buvgruzu-izvesana-4" },
@@ -162,13 +162,13 @@ const SECTIONS_DATA: Section[] = [
       {
         id: "ter-1",
         isTemplate: false,
-        title: "Būvlaukuma planēšana un sagatavošana",
+        title: "Zemes līdzināšana demontāžas objektā Siguldā",
         location: "Sigulda",
         volume: "4800 m²",
         duration: "4 dienas",
         details: "Teritorijas attīrīšana, koku sakņu izrakšana un laukuma sagatavošana turpmākiem darbiem.",
         images: [
-          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp", alt: "teritorijas-sakartosana-sigulda-1" },
+          { id: 1, url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/teritorijas-sakopsana.webp", alt: "teritorijas-sakartosana-sigulda-1" },
           { id: 2, url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600", alt: "teritorijas-sakartosana-sigulda-2" },
           { id: 3, url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600", alt: "teritorijas-sakartosana-sigulda-3" },
           { id: 4, url: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600", alt: "teritorijas-sakartosana-sigulda-4" },

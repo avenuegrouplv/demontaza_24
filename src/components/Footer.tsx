@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Share2, Mail, Phone, MapPin } from "lucide-react";
+import { LOGO_BASE64 } from "../logo";
 
 export default function Footer() {
   const [showSocialAlert, setShowSocialAlert] = useState(false);
@@ -30,17 +31,16 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center">
               <img
-                src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Logo.webp"
-                alt="SIA “Demontāža 24/7” Kājenes Logo"
-                className="h-10 w-auto object-contain brightness-0 invert"
+                src={LOGO_BASE64}
+                alt="SIA “Demontāža 24/7” Logo"
+                className="h-[52px] sm:h-[64px] w-auto object-contain bg-transparent"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                 }}
               />
-              <span className="text-white font-bold tracking-wider text-sm ml-2">DEMONTĀŽA 24/7</span>
             </div>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
-              Profesionāla pieeja būvju likvidēšanā un vides saglabāšanā.
+              Profesionāla ēku un būvju demontāža
             </p>
           </div>
 

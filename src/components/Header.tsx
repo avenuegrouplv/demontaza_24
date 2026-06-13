@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe, Phone, Mail, Clock } from "lucide-react";
+import { LOGO_BASE64 } from "../logo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,9 +94,9 @@ export default function Header() {
         {/* Logo Left */}
         <Link to="/" className="flex items-center animate-fadeIn" aria-label="Uz sākumu">
           <img
-            src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Logo.webp"
+            src={LOGO_BASE64}
             alt="Demontāža 24/7 logo"
-            className="h-[52px] sm:h-[64px] lg:h-[74px] my-0.5 w-auto object-contain transition-all duration-150 mix-blend-multiply bg-transparent"
+            className="h-[52px] sm:h-[64px] lg:h-[74px] my-0.5 w-auto object-contain transition-all duration-150 bg-transparent animate-fadeIn"
             onError={(e) => {
               // Fail-safe text representation if resource breaks
               e.currentTarget.style.display = "none";
@@ -148,7 +149,7 @@ export default function Header() {
           </button>
 
           {/* Language selection dropdown with flags instead of Globe */}
-          <div className="relative">
+          <div className="relative ml-2 sm:ml-3">
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               className={`flex items-center gap-2 px-3 py-2 rounded-sm font-black transition-all duration-150 ${

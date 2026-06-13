@@ -9,7 +9,7 @@ export default function SEOManager() {
     let title = "Demontāža 24/7";
     let description = "Profesionāli demontāžas pakalpojumi visā Latvijā.";
     let canonicalUrl = `https://demontaza24.eu${currentPath}`;
-    const logoUrl = "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Logo.webp";
+    const logoUrl = "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Logo-demontaza24.webp";
 
     // Set precise titles & descriptions requested by the user
     if (currentPath === "/") {

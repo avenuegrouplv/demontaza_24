@@ -26,7 +26,7 @@ const TECH_DATA: TechItem[] = [
     ],
     units: "5 gab.",
     price: "45.00 EUR / stundā (ar licencētu operatoru un degvielu)",
-    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Par-mums-2.webp",
     badge: "Nominālais smagais segments"
   },
   {
@@ -40,7 +40,7 @@ const TECH_DATA: TechItem[] = [
     ],
     units: "4 gab.",
     price: "25.00 EUR / stundā vai no 120.00 EUR / dienā",
-    imageUrl: "https://images.unsplash.com/photo-1579616710405-4300e12a455a?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/mazo-ekskavatoru-noma.webp",
     badge: "Manevrētspējīgs un kompakts"
   },
   {
@@ -54,7 +54,7 @@ const TECH_DATA: TechItem[] = [
     ],
     units: "6 gab.",
     price: "35.00 EUR / stundā vai pēc tāmētā reisu skaita",
-    imageUrl: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/smago-automasinu-noma.webp",
     badge: "Smagie pašizgāzēji"
   },
   {
@@ -68,7 +68,7 @@ const TECH_DATA: TechItem[] = [
     ],
     units: "50+ gab.",
     price: "no 150.00 EUR / reiss (iekļaujot utilizācijas poligonu nodevas)",
-    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_4.webp",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-konteineru-noma.webp",
     badge: "Plašs tilpumu spektrs"
   }
 ];

@@ -23,33 +23,33 @@ const SERVICES_DATA: ServiceItem[] = [
       "Koka siju, grīdu un jumta kopņu demontāža",
       "Iekštelpu starpsienu un šķērssienu nojaukšana pirms remonta sākšanas"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp",
     icon: <Pickaxe className="h-6 w-6" />
   },
   {
     id: 2,
     title: "Ēku un būvju nojaukšana",
-    description: "Sarežģītu un paaugstinātas bīstamības objektu nojaukšana. Mēs saskaņosim visus ar darba izpildi saistītos apstākļus ar Būvvaldi, garantējot drošu un normatīvajiem aktiem atbilstošu demontāžas procesu.",
+    description: "Sarežģītu un paaugstinātas bīstamības objektu nojaukšana. Mēs saskaņosim visus ar darba izpildi saistītos apstākļus ar Būvvaldi, garantējot drošu un normatīvajiem aktiem atbelstošu demontāžas procesu.",
     bullets: [
       "Nolietotu un bīstamu graustu likvidēšana pilsētvidē",
       "Bīstamu avārijas stāvoklī esošu konstrukciju demontāža",
       "Industriālo kompleksu un angāru jaukšana, izmantojot smago tehniku",
       "Izstrādāts detalizēts darbu veikšanas projekts (DVP)"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp",
     icon: <HardHat className="h-6 w-6" />
   },
   {
     id: 3,
     title: "Būvgružu izvešana",
-    description: "Ātra būvniecības un nojaukšanas atkritumu šķirošana, iekraušana, utilizācija un licencēta utilizācijas dokumentu sagatavošana. Mums ir pieejami dažāda izmēra būvgružu konteineri.",
+    description: "Ātra būvniecības un nojaukšanas atkritumu šķirošana, iekraušana, utilizācija un licencēta utilizācijas dokumentu sagatavošana. Mēs nodrošinām efektīvu būvgružu savākšanu.",
     bullets: [
       "Metāla, koka un jaukto būvniecības gružu izvešana",
       "Mehāniskā un manuālā būvgružu šķirošana un iekraušana",
       "Konteineri no 8m³ līdz 30m³ tilpumiem jebkuram apjomam",
       "Uzskatāma un oficiāla utilizācijas dokumentu sagatavošana iesniegšanai"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1605712771501-c889a74fb12f?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-izvesana.webp",
     icon: <Truck className="h-6 w-6" />
   },
   {
@@ -62,7 +62,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Smilts, grants, šķembu un melnzemes piegāde un operatīva iestrāde",
       "Grāvju attīrīšana, dīķu rakšana un drenāžas vai komunikāciju izbūve"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1579829364409-7428b615b13a?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/teritorijas-sakopsana.webp",
     icon: <Mountain className="h-6 w-6" />
   },
   {
@@ -75,7 +75,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Elastīgi nomas termiņi gan fiziskām, gan juridiskām personām",
       "Profesionāla utilizācija un nogāde uz licencētiem poligoniem"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-konteineru-noma.webp",
     icon: <Trash2 className="h-6 w-6" />
   },
   {
@@ -88,7 +88,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Trijasu un četrasu kravas pašizgāzēji lieliem tilpumiem",
       "Tehnikas operatīva transportēšana visā Baltijā"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800",
+    imageUrl: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24-6.webp",
     icon: <Wrench className="h-6 w-6" />
   }
 ];

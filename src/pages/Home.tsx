@@ -80,7 +80,7 @@ function CurledCorner() {
 const CAROUSEL_SLIDES: CarouselSlide[] = [
   {
     id: 1,
-    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24-5.webp",
     title: "Demontāžas pakalpojumi",
     subtitle: "Precīzi plānoti un droši demontāžas darbi pirms renovācijas uzsākšanas",
     alt: "ekskavators-veic-buves-nojauksanu-1"
@@ -105,6 +105,13 @@ const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Mūsu darba struktūra",
     subtitle: "No saskaņošanas būvvaldē līdz teritorijas pilnīgai nodošanai ekspluatācijā",
     alt: "ekskavators-veic-buves-nojauksanu-4"
+  },
+  {
+    id: 5,
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24-6.webp",
+    title: "Teritorijas sakopšana un labiekārtošana",
+    subtitle: "Pilnīga zemes planēšana un sagatavošana jaunajai būvniecībai",
+    alt: "ekskavators-veic-buves-nojauksanu-5"
   }
 ];
 
@@ -159,62 +166,62 @@ const GALLERY_HOME: GalleryItem[] = [
 const PORTFOLIO_HOME = [
   {
     id: 1,
-    title: "Daudzdzīvokļu dzīvojamās ēkas demontāža",
+    title: "Dzīvojamās ēkas demontāža Rīgā",
     tag: "DAUDZDZĪVOKĻU ĒKU DEMONTĀŽA",
     sectionName: "Daudzdzīvokļu ēku demontāža",
     location: "Rīga",
     year: "2026",
-    url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp",
     alt: "daudzdzivoklu-eku-demontaza"
   },
   {
     id: 2,
-    title: "Koka un mūra privātmājas demontāža",
+    title: "Divstāvu mūra privātmājas demontāža Jūrmalā",
     tag: "PRIVĀTMĀJU DEMONTĀŽA",
     sectionName: "Privātmāju demontāža",
     location: "Jūrmala",
     year: "2025",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/privatmaju-demontaza.webp",
     alt: "privatmaju-demontaza"
   },
   {
     id: 3,
-    title: "Nolietotas palīgbūves un vecā šķūņa demontāža",
-    tag: "ŠĶŪŅU DEMONTĀŽA",
-    sectionName: "Šķūņu demontāža",
+    title: "Gāzbetona palīgēkas demontāža Kuldīgā",
+    tag: "PALĪGĒKU DEMONTĀŽA",
+    sectionName: "Palīgēku demontāža",
     location: "Kuldīga",
     year: "2026",
-    url: "https://images.unsplash.com/photo-1513828729020-041400e47fe5?q=80&w=600",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/paligekas-demontaza.webp",
     alt: "vecā-šķūņa-demontāža"
   },
   {
     id: 4,
-    title: "Ražošanas un noliktavas ēkas demontāža",
+    title: "Dzelzbetona ražošanas ceha demontāža Daugavpilī",
     tag: "INDUSTRIĀLO OBJEKTU DEMONTĀŽA",
     sectionName: "Industriālo objektu demontāža",
     location: "Daugavpils",
     year: "2025",
-    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/industriala-objekta-demontaza.webp",
     alt: "razosanas-noliktavas-eku-demontaza"
   },
   {
     id: 5,
-    title: "Būvniecības gružu un sārņu utilizēšana",
+    title: "Būvgružu šķirošana un izvešana no objekta Mārupē",
     tag: "BŪVGRUŽU IZVEŠANA",
     sectionName: "Būvgružu izvešana",
     location: "Mārupe",
     year: "2026",
-    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_4.webp",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-izvesana.webp",
     alt: "būvniecības-gružu-utilizācija"
   },
   {
     id: 6,
-    title: "Būvlaukuma planēšana un sakopšana",
+    title: "Zemes līdzināšana demontāžas objektā Siguldā",
     tag: "TERITORIJAS SAKOPŠANA",
     sectionName: "Teritorijas sakopšana",
     location: "Sigulda",
     year: "2026",
-    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp",
+    url: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/teritorijas-sakopsana.webp",
     alt: "būvlaukuma-planēšana-sagatavošana"
   }
 ];
@@ -481,11 +488,11 @@ export default function Home() {
             
             {/* Left Texts */}
             <div className="space-y-6">
-              <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest block font-mono">Par mums</span>
-              <h2 className="text-zinc-900 text-xl sm:text-2xl font-bold tracking-tight border-l-4 border-[#FBBF24] pl-4 leading-normal uppercase">
+              <span className="text-[#FBBF24] text-sm font-extrabold uppercase tracking-widest block font-mono">Par mums</span>
+              <h2 className="text-zinc-900 text-2xl sm:text-3xl font-extrabold tracking-tight border-l-4 border-[#FBBF24] pl-4 leading-normal uppercase">
                 Jūsu uzticamais partneris demontāžas nozarē jau vairāk nekā 20 gadus
               </h2>
-              <div className="space-y-4 text-zinc-650 text-base sm:text-lg leading-relaxed font-sans">
+              <div className="space-y-5 text-zinc-650 text-lg sm:text-[19px] leading-relaxed font-sans">
                 <p>
                   Mēs savu darbību uzsākām ar mērķi nodrošināt saviem klientiem augstākās kvalitātes un drošības standartiem atbilstošus demontāžas pakalpojumus. Divu gadu desmitu laikā esam veiksmīgi likvidējuši gan nelielas privātmājas, gan komplicētus industriālos kompleksus. Esam sadarbojušies gan ar privātīpašniekiem, kā arī uzņēmumiem un valsts pārvaldes iestādēm. Mēs savā darbā stingri sekojam vides aizsardzības noteikumiem, nodrošinot pilnu materiālu otrreizējo pārstrādi un teritorijas sakopšanu.
                 </p>
@@ -495,22 +502,31 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Images (Stacked vertically to match the height of the left text column) */}
-            <div className="flex flex-col gap-4.5 lg:h-full lg:justify-between lg:pl-4">
-              <div className="overflow-hidden shadow-sm group border border-zinc-200 rounded-[2px] h-[200px] sm:h-[240px] lg:h-[210px]">
+            {/* Right Images (Stacked vertically, aligned to the bottom to match the height of the left text column) */}
+            <div className="flex flex-col gap-4 lg:h-full lg:justify-end lg:pl-4">
+              <div className="overflow-hidden shadow-sm group border border-zinc-200 rounded-[2px] h-[280px] sm:h-[350px] lg:h-[240px] bg-zinc-100">
                 <img
-                  src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp"
-                  alt="nojaukšanas-tehnika-darbā"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Par-mums-1.webp"
+                  alt="SIA Demontāža 24/7 komanda darbā"
+                  className="w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="overflow-hidden shadow-sm group border border-zinc-200 rounded-[2px] h-[200px] sm:h-[240px] lg:h-[210px]">
+              <div className="overflow-hidden shadow-sm group border border-zinc-200 rounded-[2px] h-[280px] sm:h-[350px] lg:h-[240px] bg-zinc-100">
                 <img
-                  src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_2.webp"
-                  alt="ekskavators-veic-drikst-nojaukt"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Par-mums-2.webp"
+                  alt="Profesionāls demontāžas aprīkojums un tehnika"
+                  className="w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="overflow-hidden shadow-sm group border border-zinc-200 rounded-[2px] h-[280px] sm:h-[350px] lg:h-[240px] bg-zinc-100">
+                <img
+                  src="https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/Par-mums-3.webp"
+                  alt="Veiksmīgi pabeigts objekts un sakopta teritorija"
+                  className="w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                   decoding="async"
                 />
@@ -757,37 +773,37 @@ export default function Home() {
               {
                 title: "Objekta apskate",
                 desc: "Mūsu inženiera vizīte klienta objektā, lai precīzi novērtētu ēkas stāvokli, fiziskos izmērus un blakusbūvju riskus.",
-                img: "https://images.unsplash.com/photo-1581094288338-2314dddb7eed?q=80&w=400"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/objekta-apskate.webp"
               },
               {
                 title: "Tāmes sastādīšana",
                 desc: "Sagatavojam detalizētu darbu izmaksu tāmi ar fiksētu cenu 24 stundu laikā pēc mūsu inženiera vizītes klienta objektā.",
-                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/tames-sastadisana.webp"
               },
               {
                 title: "Saskaņošana BIS",
                 desc: "Sagatavojam nepieciešamos dokumentus, nojaukšanas būvprojektu un kārtojam atļaujas BIS sistēmā.",
-                img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=400"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/BIS.png"
               },
               {
                 title: "Demontāžas darbi",
                 desc: "Profesionāla un prasmīgi kontrolēta objekta demontāža, izmantojot mūsu specializēto demontāžas tehniku.",
-                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_1.webp"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp"
               },
               {
                 title: "Būvgružu izvešana",
                 desc: "Operatīva atkritumu iekraušana konteineros un nodošana licencētiem pārstrādātājiem ar utilizācijas aktiem.",
-                img: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=400"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/buvgruzu-izvesana.webp"
               },
               {
                 title: "Teritorijas sakopšana",
                 desc: "Teritorijas sakopšana pēc demontāžas darbu beigšanas, tostarp bedru aizbēršana un augsnes nolīdzināšana.",
-                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/demontaza24_3.webp"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/teritorijas-sakopsana.webp"
               },
               {
                 title: "Objekta nodošana",
                 desc: "Demontētās būves dzēšana no VZD kadastra, dokumentu iesniegšana Būvvaldē un objekta nodošana ekspluatācijā.",
-                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400"
+                img: "https://pub-ff8b54c4ee504990b655b0d624a4449e.r2.dev/objekta-nodosana.webp"
               }
             ].map((process, index) => (
               <div 
