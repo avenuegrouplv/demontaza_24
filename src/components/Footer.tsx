@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Share2, Mail, Phone, MapPin } from "lucide-react";
 import { LOGO_BASE64 } from "../logo";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
   const [showSocialAlert, setShowSocialAlert] = useState(false);
+  const { currentLang } = useLanguage();
 
   const handleSocialClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -19,6 +21,47 @@ export default function Footer() {
       return () => clearTimeout(timer);
     }
   }, [showSocialAlert]);
+
+  const t = {
+    LV: {
+      mission: "Profesionāla ēku un būvju demontāža",
+      sections: "Sadaļas",
+      home: "Sākums",
+      services: "Pakalpojumi",
+      rent: "Tehnikas noma",
+      faq: "Biežāk uzdotie jautājumi",
+      gallery: "Galerija",
+      contacts: "Kontakti",
+      follow: "Seko mums",
+      contactInfo: "Kontaktinformācija",
+      regNo: "Reģ. Nr. 900000012225",
+      legalAddr: "Juridiskā adrese:",
+      rights: "SIA “Demontāža 24/7” © 2026 | Visas tiesības aizsargātas",
+      cookies: "Sīkdatņu politika",
+      privacy: "Privātuma politika",
+      socialTitle: "Sociālie tīkli",
+      socialDesc: "Informācija šobrīd ir izstrādes stadijā."
+    },
+    RU: {
+      mission: "Профессиональный демонтаж зданий и сооружений",
+      sections: "Разделы",
+      home: "Главная",
+      services: "Услуги",
+      rent: "Аренда техники",
+      faq: "Часто задаваемые вопросы",
+      gallery: "Галерея",
+      contacts: "Контакты",
+      follow: "Подписывайтесь на нас",
+      contactInfo: "Контактная информация",
+      regNo: "Рег. Nr. 900000012225",
+      legalAddr: "Юридический адрес:",
+      rights: "SIA “Demontāža 24/7” © 2026 | Все права защищены",
+      cookies: "Политика файлов cookie",
+      privacy: "Политика конфиденциальности",
+      socialTitle: "Социальные сети",
+      socialDesc: "В настоящее время информация находится в процессе разработки."
+    }
+  }[currentLang];
 
   return (
     <footer className="bg-zinc-950 text-zinc-400 pt-16 pb-8 border-t border-zinc-900" aria-label="Mājaslapas kājene">
@@ -40,38 +83,38 @@ export default function Footer() {
               />
             </div>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
-              Profesionāla ēku un būvju demontāža
+              {t.mission}
             </p>
           </div>
 
           {/* Column 2: "Sadaļas" clickable list */}
           <div className="space-y-4">
-            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase font-mono">Sadaļas</h3>
+            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase font-mono">{t.sections}</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Sākums</Link>
+                <Link to="/" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.home}</Link>
               </li>
               <li>
-                <Link to="/pakalpojumi" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Pakalpojumi</Link>
+                <Link to="/pakalpojumi" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.services}</Link>
               </li>
               <li>
-                <Link to="/musu-tehnika" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Mūsu tehnika</Link>
+                <Link to="/musu-tehnika" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.rent}</Link>
               </li>
               <li>
-                <Link to="/buj" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Biežāk uzdotie jautājumi</Link>
+                <Link to="/buj" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.faq}</Link>
               </li>
               <li>
-                <Link to="/galerija" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Galerija</Link>
+                <Link to="/galerija" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.gallery}</Link>
               </li>
               <li>
-                <Link to="/kontakti" className="hover:text-[#FBBF24] transition-colors focus:outline-none">Kontakti</Link>
+                <Link to="/kontakti" className="hover:text-[#FBBF24] transition-colors focus:outline-none">{t.contacts}</Link>
               </li>
             </ul>
           </div>
 
           {/* Column 3: "Seko Mums" social column */}
           <div className="space-y-4">
-            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase font-mono">Seko mums</h3>
+            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase font-mono">{t.follow}</h3>
             <div className="flex items-center gap-4">
               <a
                 href="https://facebook.com"
@@ -102,12 +145,12 @@ export default function Footer() {
 
           {/* Column 4: Contact info, aligned right on desktop */}
           <div className="space-y-4 lg:text-right lg:items-end lg:flex lg:flex-col">
-            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase lg:text-right font-mono">Kontaktinformācija</h3>
+            <h3 className="text-[#FBBF24] text-xs font-bold tracking-wider uppercase lg:text-right font-mono">{t.contactInfo}</h3>
             <div className="text-xs space-y-2 text-zinc-400">
               <p className="font-bold text-white">SIA “Demontāža 24/7”</p>
-              <p>Reģ. Nr. 900000012225</p>
+              <p>{t.regNo}</p>
               <p>
-                Juridiskā adrese: <span className="inline-block w-16 border-b border-zinc-800"></span>
+                {t.legalAddr} <span className="inline-block w-16 border-b border-zinc-800"></span>
               </p>
               <div className="pt-2 space-y-2 flex flex-col lg:items-end">
                 <a href="tel:26739899" className="hover:text-[#FBBF24] transition-colors inline-flex items-center gap-1.5 justify-start lg:justify-end">
@@ -129,7 +172,7 @@ export default function Footer() {
           
           {/* Left copyright notice */}
           <div className="text-zinc-500 text-center sm:text-left">
-            SIA “Demontāža 24/7” © 2026 | Visas tiesības aizsargātas
+            {t.rights}
           </div>
 
           {/* Right legal policy buttons */}
@@ -137,17 +180,17 @@ export default function Footer() {
             <Link
               to="/sikdatnu-politika"
               className="text-zinc-400 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
-              aria-label="Sīkdatņu politika"
+              aria-label={t.cookies}
             >
-              Sīkdatņu politika
+              {t.cookies}
             </Link>
             <span className="text-zinc-800">I</span>
             <Link
               to="/privatuma-politika"
               className="text-zinc-400 hover:text-[#FBBF24] transition-colors focus:outline-none cursor-pointer"
-              aria-label="Privātuma politika"
+              aria-label={t.privacy}
             >
-              Privātuma politika
+              {t.privacy}
             </Link>
           </div>
 
@@ -166,8 +209,8 @@ export default function Footer() {
             <Share2 className="h-4 w-4 stroke-[3px]" />
           </span>
           <div className="font-sans">
-            <p className="font-extrabold text-xs uppercase tracking-wider text-[#FBBF24]">Sociālie tīkli</p>
-            <p className="text-zinc-300 text-xs mt-0.5 font-medium leading-relaxed">Informācija šobrīd ir izstrādes stadijā.</p>
+            <p className="font-extrabold text-xs uppercase tracking-wider text-[#FBBF24]">{t.socialTitle}</p>
+            <p className="text-zinc-300 text-xs mt-0.5 font-medium leading-relaxed">{t.socialDesc}</p>
           </div>
           <button 
             onClick={() => setShowSocialAlert(false)}

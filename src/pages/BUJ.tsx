@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import QuickNavigation from "../components/QuickNavigation";
+import { useLanguage } from "../context/LanguageContext";
 import { FaqItem } from "../types";
 
-const ALL_FAQS: FaqItem[] = [
+const FAQS_LV: FaqItem[] = [
   {
     id: 1,
     question: "Cik maksā mājas nojaukšana Latvijā un kā veidojas tāme?",
@@ -61,8 +62,86 @@ const ALL_FAQS: FaqItem[] = [
   }
 ];
 
+const FAQS_RU: FaqItem[] = [
+  {
+    id: 1,
+    question: "Сколько стоит снос дома в Латвии и как составляется смета?",
+    answer: "Стоимость сноса зависит от объема здания в кубических метрах, типа материалов (дерево, кирпич, железобетон), местоположения, возможностей подъезда спецтехники и требуемого оборудования. Для каждого проекта мы бесплатно составляем индивидуальную смету."
+  },
+  {
+    id: 2,
+    question: "Какие документы и согласования необходимы перед началом демонтажа здания?",
+    answer: "Согласно латвийским строительным нормативам, перед началом работ необходимо подать проект сноса или карту подтверждения в местное Строительное управление и получить разрешение на производство демонтажных работ."
+  },
+  {
+    id: 3,
+    question: "Предоставляете ли вы официальные документы о надлежащей утилизации строительного мусора?",
+    answer: "Да, мы являемся сертифицированным партнером по управлению отходами. Каждому клиенту по окончании работ выдается официальный акт об утилизации и декларация о приеме для предоставления в Стройуправу при сдаче объекта в эксплуатацию."
+  },
+  {
+    id: 4,
+    question: "В каких регионах вы предоставляете свои услуги?",
+    answer: "Мы обеспечиваем услуги по демонтажу, сносу зданий и вывозу строительного мусора на всей территории Латвии, концентрируясь на Риге, Рижском районе, Земгале, Курземе и Видземе."
+  },
+  {
+    id: 5,
+    question: "Как быстро после заключения договора Вы готовы начать работу?",
+    answer: "После подписания договора и получения всех необходимых разрешений от Строительного управления мы обычно приступаем к выполнению работ на Вашем объекте в течение 5-7 рабочих дней."
+  },
+  {
+    id: 6,
+    question: "Как обеспечивается безопасность труда на сложных подконтрольных объектах?",
+    answer: "Все наши сотрудники обладают требуемой профессиональной квалификацией и сертификатами безопасности. Для каждого объекта заранее пишется индивидуальный детальный проект производства работ (ППР) со строгим соблюдением государственных законов по охране труда."
+  },
+  {
+    id: 7,
+    question: "Можно ли сохранить ценные материалы (например, старинные кирпичи или балки) при сносе?",
+    answer: "Да, мы предлагаем селективный ручной демонтаж, в ходе которого наши специалисты аккуратно отделяют и сохраняют любые представляющие ценность материалы для их повторного использования по Вашему указанию."
+  },
+  {
+    id: 8,
+    question: "Какую строительную технику вы применяете на своих объектах сноса?",
+    answer: "Мы обладаем собственным полным автопарком спецтехники: от профессиональных ручных пневматических инструментов до мощных гусеничных экскаваторов, оборудованных бетоноломами, гидроножницами и измельчителями."
+  },
+  {
+    id: 9,
+    question: "Каковы размеры контейнеров для строительного мусора и какой объем выбрать?",
+    answer: "В нашем распоряжении прочные стальные контейнеры объемом от 8м³ до 30м³. Для небольшого ремонта (например, ремонт квартиры) достаточно объема 8м³-12м³, а для масштабных демонтажей используются контейнеры объемом от 20м³ до 30м³."
+  },
+  {
+    id: 10,
+    question: "В каких случаях для размещения мусорных контейнеров требуется официальное разрешение?",
+    answer: "Если контейнер будет находиться на Вашей частной территории, специальное разрешение не требуется. Если контейнер планируется установить на проезжей части общего пользования, тротуаре или газоне, необходимо согласовать занятие площади в местном самоуправлении."
+  },
+  {
+    id: 11,
+    question: "Предоставляете ли вы в аренду строительную и демонтажную технику?",
+    answer: "Да, мы сдаем в аренду современные гусеничные и колесные экскаваторы, мини-экскаваторы, самосвалы и контейнеры. Аренда техники доступна как с почасовой оплатой, так и на длительные сроки, обязательно в комплекте с опытными лицензированными операторами для наилучшей производительности на Вашем объекте."
+  }
+];
+
 export default function BUJ() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { currentLang } = useLanguage();
+
+  const faqs = currentLang === "LV" ? FAQS_LV : FAQS_RU;
+
+  const t = {
+    LV: {
+      meta: "Jautājumi un atbildes",
+      title: "Biežāk uzdotie jautājumi",
+      infoHeading: "Uzziniet visu par demontāžas darbu gaitu, cenām un normatīvajiem aktiem",
+      infoDesc: "Zemāk apkopotas meklētājā populārākās atbildes par māju un ražošanas būvju nojaukšanu, saskaņošanas procesiem un nepieciešamajiem būvgružu apsaimniekošanas dokumentiem. Ja neatradāt atbildi uz savu jautājumu, nekautrējieties sazināties ar mūsu speciālistiem.",
+      ariaBtn: "Atvērt jautājumu"
+    },
+    RU: {
+      meta: "Вопросы и ответы",
+      title: "Часто задаваемые вопросы",
+      infoHeading: "Узнайте всё о ходе демонтажных работ, стоимости и регулирующих актах",
+      infoDesc: "Ниже собраны самые популярные ответы на вопросы о сносе жилых и промышленных зданий, процессах согласования и необходимых документах утилизации строительного мусора. Если Вы не нашли ответ на свой вопрос, не стесняйтесь обращаться к нашим специалистам за бесплатной консультацией.",
+      ariaBtn: "Открыть вопрос"
+    }
+  }[currentLang];
 
   return (
     <main className="w-full bg-white text-zinc-900">
@@ -73,9 +152,9 @@ export default function BUJ() {
       {/* Hero Title Block */}
       <section className="bg-zinc-100 py-16 border-b border-zinc-200 mt-6" aria-label="Lapas virsraksts">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest font-mono">Jautājumi un atbildes</span>
+          <span className="text-[#FBBF24] text-xs font-bold uppercase tracking-widest font-mono">{t.meta}</span>
           <h1 className="text-zinc-900 text-xl sm:text-2xl font-bold tracking-tight mt-1 uppercase">
-            Biežāk uzdotie jautājumi
+            {t.title}
           </h1>
           <div className="h-1 w-12 bg-[#FBBF24] mx-auto mt-3" />
         </div>
@@ -87,15 +166,15 @@ export default function BUJ() {
           
           <div className="bg-zinc-50 border border-zinc-200 p-6 sm:p-8 rounded-[2px] mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-zinc-900 text-sm sm:text-base font-bold tracking-tight mb-2.5">
-              Uzziniet visu par demontāžas darbu gaitu, cenām un normatīvajiem aktiem
+              {t.infoHeading}
             </h2>
-            <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed font-sans">
-              Zemāk apkopotas meklētājā populārākās atbildes par māju un ražošanas būvju nojaukšanu, saskaņošanas procesiem un nepieciešamajiem būvgružu apsaimniekošanas dokumentiem. Ja neatradāt atbildi uz savu jautājumu, nekautrējieties sazināties ar mūsu speciālistiem.
+            <p className="text-zinc-650 text-xs sm:text-sm leading-relaxed font-sans">
+              {t.infoDesc}
             </p>
           </div>
 
           <div className="space-y-4">
-            {ALL_FAQS.map((faq) => {
+            {faqs.map((faq) => {
               const isOpen = openFaq === faq.id;
               return (
                 <div 
@@ -105,7 +184,7 @@ export default function BUJ() {
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : faq.id)}
                     className="w-full flex items-center justify-between p-4.5 sm:p-5 text-left text-zinc-900 font-bold hover:bg-zinc-50 transition-colors gap-4"
-                    aria-label={`Atvērt jautājumu: ${faq.question}`}
+                    aria-label={`${t.ariaBtn}: ${faq.question}`}
                     aria-expanded={isOpen}
                   >
                     <span className="text-xs sm:text-sm md:text-base inline-flex items-center gap-2">
@@ -118,7 +197,7 @@ export default function BUJ() {
                   </button>
 
                   {isOpen && (
-                    <div className="p-5 bg-zinc-50 text-zinc-600 text-xs sm:text-sm leading-relaxed border-t border-zinc-150 animate-fadeIn font-sans">
+                    <div className="p-5 bg-zinc-50 text-zinc-650 text-xs sm:text-sm leading-relaxed border-t border-zinc-150 animate-fadeIn font-sans">
                       {faq.answer}
                     </div>
                   )}

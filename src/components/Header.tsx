@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe, Phone, Mail, Clock } from "lucide-react";
 import { LOGO_BASE64 } from "../logo";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<"LV" | "RU">(() => {
-    const saved = localStorage.getItem("demontaza_lang");
-    return (saved as "LV" | "RU") || "LV";
-  });
+  const { currentLang, setCurrentLang } = useLanguage();
 
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -31,7 +29,6 @@ export default function Header() {
 
   const handleLangChange = (lang: "LV" | "RU") => {
     setCurrentLang(lang);
-    localStorage.setItem("demontaza_lang", lang);
     setLangDropdownOpen(false);
   };
 
@@ -58,14 +55,14 @@ export default function Header() {
   const navLinks = currentLang === "LV" ? [
     { name: "SĀKUMS", path: "/" },
     { name: "PAKALPOJUMI", path: "/pakalpojumi" },
-    { name: "MŪSU TEHNIKA", path: "/musu-tehnika" },
+    { name: "TEHNIKAS NOMA", path: "/musu-tehnika" },
     { name: "BUJ", path: "/buj" },
     { name: "GALERIJA", path: "/galerija" },
     { name: "KONTAKTI", path: "/kontakti" },
   ] : [
     { name: "ГЛАВНАЯ", path: "/" },
     { name: "УСЛУГИ", path: "/pakalpojumi" },
-    { name: "НАША ТЕХНИКА", path: "/musu-tehnika" },
+    { name: "АРЕНДА ТЕХНИКИ", path: "/musu-tehnika" },
     { name: "BUJ (В&О)", path: "/buj" },
     { name: "ГАЛЕРЕЯ", path: "/galerija" },
     { name: "КОНТАКТЫ", path: "/kontakti" },

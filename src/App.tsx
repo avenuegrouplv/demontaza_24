@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import SEOManager from "./components/SEOManager";
 import CookieBanner from "./components/CookieBanner";
+import { LanguageProvider } from "./context/LanguageContext";
 
 // Pages
 import Home from "./pages/Home";
@@ -17,43 +18,45 @@ import PrivatumaPolitika from "./pages/PrivatumaPolitika";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      {/* Global Scroll Position Reset */}
-      <ScrollToTop />
+    <LanguageProvider>
+      <BrowserRouter>
+        {/* Global Scroll Position Reset */}
+        <ScrollToTop />
 
-      {/* Dynamic SEO & Open Graph / JSON-LD structured schema metadata engine */}
-      <SEOManager />
+        {/* Dynamic SEO & Open Graph / JSON-LD structured schema metadata engine */}
+        <SEOManager />
 
-      {/* Flexible wrap to push footer to the bottom */}
-      <div className="flex min-h-screen flex-col bg-white">
-        
-        {/* Sticky Global Navigation header bar */}
-        <Header />
+        {/* Flexible wrap to push footer to the bottom */}
+        <div className="flex min-h-screen flex-col bg-white">
+          
+          {/* Sticky Global Navigation header bar */}
+          <Header />
 
-        {/* Semantic central body layout */}
-        <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pakalpojumi" element={<Pakalpojumi />} />
-            <Route path="/musu-tehnika" element={<MusuTehnika />} />
-            <Route path="/buj" element={<BUJ />} />
-            <Route path="/galerija" element={<Galerija />} />
-            <Route path="/kontakti" element={<Kontakti />} />
-            <Route path="/sikdatnu-politika" element={<SikdatnuPolitika />} />
-            <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
-            
-            {/* Fail-safe redirection for missing links to home */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          {/* Semantic central body layout */}
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/pakalpojumi" element={<Pakalpojumi />} />
+              <Route path="/musu-tehnika" element={<MusuTehnika />} />
+              <Route path="/buj" element={<BUJ />} />
+              <Route path="/galerija" element={<Galerija />} />
+              <Route path="/kontakti" element={<Kontakti />} />
+              <Route path="/sikdatnu-politika" element={<SikdatnuPolitika />} />
+              <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
+              
+              {/* Fail-safe redirection for missing links to home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
+
+          {/* Four-Column interactive Footer */}
+          <Footer />
+          
+          {/* Cookie Consent Banner */}
+          <CookieBanner />
+          
         </div>
-
-        {/* Four-Column interactive Footer */}
-        <Footer />
-        
-        {/* Cookie Consent Banner */}
-        <CookieBanner />
-        
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
